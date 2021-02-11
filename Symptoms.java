@@ -4,43 +4,31 @@
  * and open the template in the editor.
  */
 package project1;
+import java.util.*;
+import java.time.*;
 import java.io.*;
-import java.util.*;  
-
 /**
  *
  * @author Akash
  */
-public class Patient {
-    public String filepath="C:\\Users\\Akash\\Desktop\\CSV files\\Patientlist.csv";
+public class Symptoms {
+    public String filepath="C:\\Users\\Akash\\Desktop\\CSV files\\Symptoms.csv";
     
-    public long id;
-    public String name;
-    public String address;
-    public String email;
-    public String password;
+    public String description;
+    public String datetime;
     
-    public Patient(long id,String name,String address,String email,String password){
-        this.id=id;
-        this.name=name;
-        this.address=address;
-        this.email=email;
-        this.password=password;
+    public Symptoms(String desc,String datetime){
+        this.description=desc;
+        this.datetime=datetime;
     }
     
-    public void saveInfo(){
+    public void sendSymptoms(){
         FileWriter filewriter=null;
         try{
             filewriter= new FileWriter(filepath,true);
-            filewriter.append(String.valueOf(this.id));
+            filewriter.append(this.description);
             filewriter.append(",");
-            filewriter.append(this.name);
-            filewriter.append(",");
-            filewriter.append(this.address);
-            filewriter.append(",");
-            filewriter.append(this.email);
-            filewriter.append(",");
-            filewriter.append(this.password);
+            filewriter.append(this.datetime);
             filewriter.append("\n");
             
         }catch(Exception ex){
@@ -55,12 +43,11 @@ public class Patient {
                 e.printStackTrace();
             }
         }
-  
     }
     
-    public ArrayList<Patient> getInfo(){
+    public void getSymptoms(){
         BufferedReader reader=null;
-        ArrayList<Patient> Patientarr=new ArrayList<Patient>();
+        ArrayList<Symptoms> Symarr=new ArrayList<Symptoms>();
         try{
             String line="";
             reader=new BufferedReader(new FileReader(filepath));
@@ -70,13 +57,10 @@ public class Patient {
                 String[] fields= line.split(",");
                 
                 if(fields.length>0){
-                    Patient p= new Patient();
-                    p.id=(Long.parseLong(fields[0]));
-                    p.name=fields[1];
-                    p.address=fields[2];
-                    p.email=fields[3];
-                    p.password=fields[4];
-                    Patientarr.add(p);
+                    Symptoms s= new Symptoms();
+                    s.description=fields[0];
+                    s.datetime=fields[1];
+                    Symarr.add(s);
                 }
             }
         }catch(Exception ex){
@@ -90,17 +74,22 @@ public class Patient {
                 e.printStackTrace();
             }
         }
-        return Patientarr;
+        for(Symptoms s:Symarr){
+            System.out.printf("Description=%s,Date/time=%s\n",s.description,s.datetime);
+            System.out.println();
+        }
     }
 
-    Patient(){
+    public static void main(String[] args){
+        Symptoms s=new Symptoms();
+        s.description="Fever";
+        s.datetime="7/02/2020";
+        s.sendSymptoms();
+        s.getSymptoms();
+    }
+    
+    Symptoms(){
         
     }
-         
 }
-
-    /**
-     * @param args the command line arguments
-     */
-    
 
