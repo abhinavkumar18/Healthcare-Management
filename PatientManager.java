@@ -4,35 +4,47 @@
  * and open the template in the editor.
  */
 package project1;
-import java.util.*;
 /**
  *
- * @author Akash
+ * @author Abhinav
  */
-public class PatientManager{
-    private static ArrayList<Patient> arr;
+public class Patient {
+    public String filepath="C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv";
     
-    public static void getlistofpatients(Patient P){
-        arr=P.getInfo();
-        for(Patient p: arr){
-            System.out.printf("Patient ID=%d,Name=%s,Address=%s,Email=%s,Password=%s\n",p.id,p.name,p.address,p.email,p.password);
-            System.out.println();
-        }
+    public String id;
+    public String name;
+    public String address;
+    public String email;
+    public String password;
+    
+    public String getpatientid(){
+        return id;
+    }
+    public String getpatientname(){
+        return name;
+    }
+    public String getpatientaddress(){
+        return address;
+    }
+    public String getpatientemail(){
+        return email;
+    }
+    public String getpatientpassword(){
+        return password;
+    }
+        
+    public Patient(String id,String name,String address,String email,String password){
+        this.id=id;
+        this.name=name;
+        this.address=address;
+        this.email=email;
+        this.password=password;
+    }
+    
+    public String toString(){
+        return "Patient Id:"+getpatientid()+"Patient Name:"+getpatientname()+
+                "Patient Address:"+getpatientaddress()+"Patient Email:"+getpatientemail()+
+                "Patient Password:"+getpatientpassword();
         
     }
 }
-    
-    /*public static void main(String[] args) {
-        
-                Patient p=new Patient();
-                p.id=10;
-                p.name="Test";
-                p.address="Ram";
-                p.email="memory@gmail.com";
-                p.password="aex123";
-                p.saveInfo();
-                getlistofpatients(p);
-        }
-        
-}
-
