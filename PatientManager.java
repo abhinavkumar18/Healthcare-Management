@@ -4,47 +4,52 @@
  * and open the template in the editor.
  */
 package project1;
+import java.util.*;
+
 /**
  *
  * @author Abhinav
  */
-public class Patient {
-    public String filepath="C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv";
+public class PatientManager{
+    private  List<Patient> patientList;
     
-    public String id;
-    public String name;
-    public String address;
-    public String email;
-    public String password;
+    public boolean init(String filename){
+        boolean result=false;
+        this.patientList.add(new Patient("107","Rajat Malhotra","Orissa","raj123@gmail.com","raj345"));
+        this.patientList.add(new Patient("108","Raja Roy","uttar Pradesh","raj3@gmail.com","raj215"));
+        result=true;
+        return result;   
+    }
+    public PatientManager(){
+        this.patientList=new ArrayList<Patient>();
+    }
+    public List<Patient>getlistofpatients(){
+        List<Patient> result=null;
+        result=Collections.unmodifiableList(this.patientList);
+        return result;
+    }
+    public boolean addpatient(Patient newPatient){
+        boolean result=false;
+        this.patientList.add(newPatient);
+        System.out.println("added"+newPatient.toString());
+        result=true;
+        return result;
+    }
+    public boolean dohousekeeping(){
+        return true;
+    }
     
-    public String getpatientid(){
-        return id;
-    }
-    public String getpatientname(){
-        return name;
-    }
-    public String getpatientaddress(){
-        return address;
-    }
-    public String getpatientemail(){
-        return email;
-    }
-    public String getpatientpassword(){
-        return password;
-    }
+    
+    public static void main(String[] args) {
         
-    public Patient(String id,String name,String address,String email,String password){
-        this.id=id;
-        this.name=name;
-        this.address=address;
-        this.email=email;
-        this.password=password;
-    }
-    
-    public String toString(){
-        return "Patient Id:"+getpatientid()+"Patient Name:"+getpatientname()+
-                "Patient Address:"+getpatientaddress()+"Patient Email:"+getpatientemail()+
-                "Patient Password:"+getpatientpassword();
+        PatientManager mgr= new PatientManager();
+        mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
+        assert(mgr.getlistofpatients().size()==2);
+        assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
         
-    }
+        
+        
+        }
+        
 }
+
