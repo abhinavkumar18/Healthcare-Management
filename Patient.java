@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package project1;
-/**
- *
- * @author Abhinav
- */
+
 public class Patient {
-    public String filepath="C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv";
+    private String filepath="C:\\Users\\Akash\\Desktop\\CSV files\\Patientlist.csv";
     
     public String id;
     public String name;
@@ -47,5 +39,7 @@ public class Patient {
                 "Patient Password:"+getpatientpassword();
         
     }
+    Patient(){
+        
+    }
 }
-
