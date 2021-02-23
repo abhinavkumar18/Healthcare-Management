@@ -52,7 +52,7 @@ public class PatientManager{
                 String[] fields=line.split(",");
                 
                 if(fields.length>0){
-                    System.out.println(fields);
+                    
                     Patient a= new Patient();
                     a.id=fields[0];
                     a.name=fields[1];
