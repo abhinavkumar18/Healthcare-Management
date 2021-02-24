@@ -4,92 +4,48 @@
  * and open the template in the editor.
  */
 package project1;
-import java.util.*;
-import java.time.*;
-import java.io.*;
+
 /**
  *
- * @author Akash
+ * @author Abhinav
  */
-public class Symptoms {
-    public String filepath="C:\\Users\\Akash\\Desktop\\CSV files\\Symptoms.csv";
+public class Symptom {
+    public String filepath="C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files";
     
-    public String description;
+    public String patientid;
+    public String patientname;
     public String datetime;
+    public String symptoms;
     
-    public Symptoms(String desc,String datetime){
-        this.description=desc;
+    
+     public String getpatientid(){
+        return patientid;
+    }
+    public String getpatientname(){
+        return patientname;
+    }
+    public String getdatetime(){
+        return datetime;
+    }
+    public String getsymptoms(){
+        return symptoms;
+    }
+public Symptom(String patientid,String patientname,String datetime,String symptoms){
+        this.patientid=patientid;
+        this.patientname=patientname;
         this.datetime=datetime;
-    }
-    
-    public void sendSymptoms(){
-        FileWriter filewriter=null;
-        try{
-            filewriter= new FileWriter(filepath,true);
-            filewriter.append(this.description);
-            filewriter.append(",");
-            filewriter.append(this.datetime);
-            filewriter.append("\n");
-            
-        }catch(Exception ex){
-            ex.printStackTrace();
-            
-        }
-        finally{
-            try{
-                filewriter.flush();
-                filewriter.close();
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
-    
-    public void getSymptoms(){
-        BufferedReader reader=null;
-        ArrayList<Symptoms> Symarr=new ArrayList<Symptoms>();
-        try{
-            String line="";
-            reader=new BufferedReader(new FileReader(filepath));
-            reader.readLine();
-            
-            while((line=reader.readLine())!=null){
-                String[] fields= line.split(",");
-                
-                if(fields.length>0){
-                    Symptoms s= new Symptoms();
-                    s.description=fields[0];
-                    s.datetime=fields[1];
-                    Symarr.add(s);
-                }
-            }
-        }catch(Exception ex){
-            ex.printStackTrace();
-          
-        }
-        finally{
-            try{
-                reader.close();
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        }
-        for(Symptoms s:Symarr){
-            System.out.printf("Description=%s,Date/time=%s\n",s.description,s.datetime);
-            System.out.println();
-        }
-    }
-
-    public static void main(String[] args){
-        Symptoms s=new Symptoms();
-        s.description="Fever";
-        s.datetime="7/02/2020";
-        s.sendSymptoms();
-        s.getSymptoms();
-    }
-    
-    Symptoms(){
+        this.symptoms=symptoms;
         
     }
+    
+    public String toString(){
+        return "Patient Id:"+getpatientid()+"Patient Name:"+getpatientname()+
+                "Date Time:"+getdatetime()+"Description:"+getsymptoms();
+        
+    }
+    Symptom(){
 }
+}
+    
+    
 
