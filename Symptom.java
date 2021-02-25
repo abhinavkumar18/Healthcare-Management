@@ -12,25 +12,25 @@ package project1;
 public class Symptom {
     public String filepath="C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files";
     
-    public String patientid;
-    public String patientname;
-    public String datetime;
-    public String symptoms;
+    private String patientid;
+    private String patientname;
+    private String datetime;
+    private String symptoms;
     
-    
-     public String getpatientid(){
+    public:
+      String getpatientid(){
         return patientid;
     }
-    public String getpatientname(){
+     String getpatientname(){
         return patientname;
     }
-    public String getdatetime(){
+     String getdatetime(){
         return datetime;
     }
-    public String getsymptoms(){
+     String getsymptoms(){
         return symptoms;
     }
-public Symptom(String patientid,String patientname,String datetime,String symptoms){
+ Symptom(String patientid,String patientname,String datetime,String symptoms){
         this.patientid=patientid;
         this.patientname=patientname;
         this.datetime=datetime;
@@ -38,7 +38,7 @@ public Symptom(String patientid,String patientname,String datetime,String sympto
         
     }
     
-    public String toString(){
+     String toString(){
         return "Patient Id:"+getpatientid()+"Patient Name:"+getpatientname()+
                 "Date Time:"+getdatetime()+"Description:"+getsymptoms();
         

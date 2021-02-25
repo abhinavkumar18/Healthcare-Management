@@ -39,8 +39,8 @@ public Advice(String patientid,String patientname,String datetime,String descrip
     }
     
     public String toString(){
-        return "Patient Id:"+getpatientid()+"Patient Name:"+getpatientname()+
-                "Date Time:"+getdatetime()+"Description:"+getdescription();
+        return "Patient Id: "+getpatientid()+", Patient Name: "+getpatientname()+
+                ", Date Time: "+getdatetime()+", Description: "+getdescription();
         
     }
     Advice(){

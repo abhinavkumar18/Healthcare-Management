@@ -108,6 +108,22 @@ public class AdviceManager {
         result=true;
         return result;
     }
+
+     // get Advice of Particular By Name
+     public Advice getAdvice(String name){
+        
+        for(int i=0; i<descriptionList.size();i++){
+            if(descriptionList.get(i).getpatientname().equals(name)){
+               Advice d1;
+                d1 = new Advice();
+                d1 = descriptionList.get(i);
+                return d1;
+            }
+        }
+//        Donation d1 = new Donation();
+        return null;
+    }
+
     public boolean dohousekeeping(){
         return true;
     }

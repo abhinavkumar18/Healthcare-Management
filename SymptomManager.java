@@ -15,12 +15,12 @@ import java.lang.*;
  */
 public class SymptomManager {
  private String filepath="C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Symptoms.csv";
-    private List<Symptom> symptomsList;
-    private List<Symptom> result;
+    private List<Symptoms> symptomsList;
+    private List<Symptoms> result;
     public boolean init(String filename){
         boolean result=false;
-        this.symptomsList.add(new Symptom("107","Rajat Malhotra","24-02-2021","Fever,Headache,coughing"));
-        this.symptomsList.add(new Symptom("108","Raja Roy","24-02-2021","loose motions,weakness"));
+        this.symptomsList.add(new Symptoms("107","Rajat Malhotra","24-02-2021","Fever,Headache,coughing"));
+        this.symptomsList.add(new Symptoms("108","Raja Roy","24-02-2021","loose motions,weakness"));
         result=true;
         return result;   
     }
