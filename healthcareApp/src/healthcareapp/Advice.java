@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project1;
-
+package healthcareapp;
+import java.io.*;
+import java.util.*;
 /**
  *
- * @author Abhinav
+ * @author Akash
  */
 public class Advice {
-public String filepath="C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files";
+    public String filepath="/home/kmrakash/college/Software engineering/healthcareApp/src/healthcareapp/Advice.csv";
     
-    public String patientid;
+     public String patientid;
     public String patientname;
     public String datetime;
     public String description;
@@ -44,6 +45,6 @@ public Advice(String patientid,String patientname,String datetime,String descrip
         
     }
     Advice(){
+        
+    }
 }
-}
-    

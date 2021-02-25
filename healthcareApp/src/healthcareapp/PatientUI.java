@@ -41,8 +41,9 @@ public class PatientUI extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Patient UI");
 
-        cmbPatientList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "[--- Select Patient---]", " " }));
+        cmbPatientList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "[--- Select Patient---]" }));
 
         jLabel1.setText("Select Patient");
 

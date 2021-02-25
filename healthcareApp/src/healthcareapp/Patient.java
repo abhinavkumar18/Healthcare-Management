@@ -1,7 +1,18 @@
-package project1;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package healthcareapp;
+import java.io.*;
+import java.util.*;  
 
+/**
+ *
+ * @author Akash
+ */
 public class Patient {
-    private String filepath="C:\\Users\\Akash\\Desktop\\CSV files\\Patientlist.csv";
+    
     
     public String id;
     public String name;
@@ -24,6 +35,8 @@ public class Patient {
     public String getpatientpassword(){
         return password;
     }
+    
+    Patient(){};
         
     public Patient(String id,String name,String address,String email,String password){
         this.id=id;
@@ -34,12 +47,15 @@ public class Patient {
     }
     
     public String toString(){
-        return "Patient Id:"+getpatientid()+"Patient Name:"+getpatientname()+
-                "Patient Address:"+getpatientaddress()+"Patient Email:"+getpatientemail()+
-                "Patient Password:"+getpatientpassword();
-        
-    }
-    Patient(){
+        return "Patient Id: "+getpatientid()+" Patient Name: "+getpatientname()+
+                " Patient Address: "+getpatientaddress()+" Patient Email: "+getpatientemail()+
+                " Patient Password: "+getpatientpassword();
         
     }
 }
+
+    /**
+     * @param args the command line arguments
+     */
+    
+

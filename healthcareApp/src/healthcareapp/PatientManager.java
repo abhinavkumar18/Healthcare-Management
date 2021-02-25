@@ -3,38 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project1;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+package healthcareapp;
+
 import java.util.*;
-import java.lang.*;
+import java.io.*;
 /**
  *
  * @author Akash
  */
 public class PatientManager{
-    private String filepath="C:\\Users\\Akash\\Desktop\\CSV files\\Patientlist.csv";
-    private List<Patient> patientList;
+    public String filepath="/home/kmrakash/college/Software engineering/healthcareApp/src/healthcareapp/Patientlist.csv";
+    private  List<Patient> patientList;
     private List<Patient> result;
-    public boolean init(String filename){
-        boolean result=false;
-        this.patientList.add(new Patient("107","Rajat Malhotra","Orissa","raj123@gmail.com","raj345"));
-        this.patientList.add(new Patient("108","Raja Roy","uttar Pradesh","raj3@gmail.com","raj215"));
-        result=true;
-        return result;   
-    }
+//    public boolean init(String filename){
+//        boolean result=false;
+//        this.patientList.add(new Patient("107","Rajat Malhotra","Orissa","raj123@gmail.com","raj345"));
+//        this.patientList.add(new Patient("108","Raja Roy","uttar Pradesh","raj3@gmail.com","raj215"));
+//        result=true;
+//        return result;   
+//    }
     public PatientManager(){
         this.patientList=new ArrayList<Patient>();
     }
-    //public String toString(Patient a){
-      //  return a.id + a.name + a.address + a.email +a.password;
-    //}
-    
-    
     public List<Patient>getlistofpatients(){
         
-        result=Collections.unmodifiableList(this.patientList);
+    result=Collections.unmodifiableList(this.patientList);
         result=new ArrayList(result);
         result.clear();
        
@@ -52,7 +45,7 @@ public class PatientManager{
                 String[] fields=line.split(",");
                 
                 if(fields.length>0){
-                    
+                    //System.out.println(fields);
                     Patient a= new Patient();
                     a.id=fields[0];
                     a.name=fields[1];
@@ -77,7 +70,6 @@ public class PatientManager{
         
         return result;
     }
-    
     public boolean addpatient(Patient newPatient){
         boolean result=false;
         this.patientList.add(newPatient);
@@ -123,15 +115,15 @@ public class PatientManager{
     public static void main(String[] args) {
         
         PatientManager mgr= new PatientManager();
-        mgr.addpatient(new Patient("108","Raja Roy","uttar Pradesh","raj3@gmail.com","raj215"));
-        mgr.addpatient(new Patient("109","Akash Roy","West Pradesh","akash3@gmail.com","akasj215"));
-        System.out.println(mgr.getlistofpatients());
-        //mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
-        //assert(mgr.getlistofpatients().size()==2);
-        //assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
+       // mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
+//        assert(mgr.getlistofpatients().size()==2);
+//        assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
         
         
         
         }
         
 }
+    
+    
+

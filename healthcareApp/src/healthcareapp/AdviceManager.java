@@ -3,37 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project1;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+package healthcareapp;
 import java.util.*;
-import java.lang.*;
+import java.io.*;
 /**
  *
- * @author DELL
+ * @author Akash
  */
-public class SymptomManager {
- private String filepath="C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Symptoms.csv";
-    private List<Symptoms> symptomsList;
-    private List<Symptoms> result;
+public class AdviceManager {
+    public String filepath="/home/kmrakash/college/Software engineering/healthcareApp/src/healthcareapp/Advice.csv";
+
+    private List<Advice> descriptionList;
+    private List<Advice> result;
+    
+    // init
     public boolean init(String filename){
         boolean result=false;
-        this.symptomsList.add(new Symptoms("107","Rajat Malhotra","24-02-2021","Fever,Headache,coughing"));
-        this.symptomsList.add(new Symptoms("108","Raja Roy","24-02-2021","loose motions,weakness"));
+        this.descriptionList.add(new Advice("107","Rajat Malhotra","24-02-2021","Paracetamol , Take Rest"));
+        this.descriptionList.add(new Advice("108","Raja Roy","24-02-2021","PAN-40,Drink boiled Water"));
         result=true;
         return result;   
     }
-    public SymptomManager(){
-        this.symptomsList=new ArrayList<Symptom>();
+    
+    // Constructor
+    public AdviceManager(){
+        this.descriptionList=new ArrayList<Advice>();
     }
-    public List<Symptom>getinfo(){
+    
+    // view Advice Method
+    public List<Advice>viewadvice(){
         
-        result=Collections.unmodifiableList(this.symptomsList);
+        result=Collections.unmodifiableList(this.descriptionList);
         result=new ArrayList(result);
         result.clear();
-       
-        
         
         // Reading from csv file
         BufferedReader reader=null;
@@ -48,11 +50,11 @@ public class SymptomManager {
                 
                 if(fields.length>0){
                     
-                    Symptom a= new Symptom();
+                    Advice a= new Advice();
                     a.patientid=fields[0];
                     a.patientname=fields[1];
                     a.datetime =fields[2];
-                    a.symptoms =fields[3];
+                    a.description =fields[3];
                     
                     
                     result.add(a);
@@ -72,22 +74,23 @@ public class SymptomManager {
         
         return result;
     }
-    public boolean uploadsymptoms(Symptom newSymptom){
+    
+    public boolean giveadvice(Advice newAdvice){
         boolean result=false;
-        this.symptomsList.add(newSymptom);
-        System.out.println("uploaded "+newSymptom.toString());
+        this.descriptionList.add(newAdvice);
+        System.out.println("Given "+newAdvice.toString());
         
         // Adding NewPatient into CSV File
         FileWriter filewriter=null;
         try{
             filewriter= new FileWriter(filepath,true);
-            filewriter.append(newSymptom.getpatientid());
+            filewriter.append(newAdvice.getpatientid());
             filewriter.append(",");
-            filewriter.append(newSymptom.getpatientname());
+            filewriter.append(newAdvice.getpatientname());
             filewriter.append(",");
-            filewriter.append(newSymptom.getdatetime());
+            filewriter.append(newAdvice.getdatetime());
             filewriter.append(",");
-            filewriter.append(newSymptom.getsymptoms());
+            filewriter.append(newAdvice.getdescription());
             filewriter.append("\n");
             
             
@@ -108,6 +111,22 @@ public class SymptomManager {
         result=true;
         return result;
     }
+    
+    // get Advice of Particular By Name
+    public Advice getAdvice(String name){
+        
+        for(int i=0; i<descriptionList.size();i++){
+            if(descriptionList.get(i).getpatientname().equals(name)){
+               Advice d1;
+                d1 = new Advice();
+                d1 = descriptionList.get(i);
+                return d1;
+            }
+        }
+//        Donation d1 = new Donation();
+        return null;
+    }
+    
     public boolean dohousekeeping(){
         return true;
     }
@@ -115,10 +134,10 @@ public class SymptomManager {
     
     public static void main(String[] args) {
         
-        SymptomManager mgr= new SymptomManager();
-        mgr.uploadsymptoms(new Symptom("107","Rajat Malhotra","24-02-2021","Fever,Headache,coughing"));
-        mgr.uploadsymptoms(new Symptom("108","Raja Roy","24-02-2021","loose motions,weakness"));
-        System.out.println(mgr.getinfo());
+//        AdviceManager mgr= new AdviceManager();
+//        mgr.giveadvice(new Advice("107","Rajat Malhotra","24-02-2021","Paracetamol , Take Rest"));
+//        mgr.giveadvice(new Advice("108","Raja Roy","24-02-2021","PAN-40,Drink boiled Water"));
+//        System.out.println(mgr.viewadvice());
         //mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
         //assert(mgr.getlistofpatients().size()==2);
         //assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
@@ -126,7 +145,6 @@ public class SymptomManager {
         
         
         }
-        
+    
 }
    
-
