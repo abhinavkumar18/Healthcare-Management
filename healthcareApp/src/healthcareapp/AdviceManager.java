@@ -15,6 +15,7 @@ public class AdviceManager {
 
     private List<Advice> descriptionList;
     private List<Advice> result;
+    private Scanner x;
     
     // init
     public boolean init(String filename){
@@ -112,19 +113,40 @@ public class AdviceManager {
         return result;
     }
     
-    // get Advice of Particular By Name
-    public Advice getAdvice(String name){
+    // get Advice of Particular By Name & ID
+    
+    public void getAdvice(String name,String id){
+        boolean found=false;
+        String ID=""; 
+        String Name="";
+        String date="";
+        String desc="";
         
-        for(int i=0; i<descriptionList.size();i++){
-            if(descriptionList.get(i).getpatientname().equals(name)){
-               Advice d1;
-                d1 = new Advice();
-                d1 = descriptionList.get(i);
-                return d1;
-            }
+        try {
+           x=new Scanner(new File(filepath));
+           x.useDelimiter("[,\n]");
+           
+           while(x.hasNext() && !found){
+               ID=x.next();
+               Name=x.next();
+               date=x.next();
+               desc=x.next();
+               
+               if(ID.equals(id) && Name.equals(name)){
+                  found=true; 
+               }
+           }
+           if(found){
+               System.out.println("ID="+ID+"Name="+Name+"Date="+date+"Advice="+desc);
+           }
+           else{
+               System.out.println("No records found");
+           }
+           
         }
-//        Donation d1 = new Donation();
-        return null;
+        catch(Exception e){
+            System.out.println("Error");
+        }
     }
     
     public boolean dohousekeeping(){
