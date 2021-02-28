@@ -6,12 +6,14 @@
 package healthcareapp;
 import java.util.*;
 import java.io.*;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Akash
  */
 public class AdviceManager {
-    public String filepath="/home/kmrakash/college/Software engineering/healthcareApp/src/healthcareapp/Advice.csv";
+    public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/Advice.csv";
 
     private List<Advice> descriptionList;
     private List<Advice> result;
@@ -115,38 +117,59 @@ public class AdviceManager {
     
     // get Advice of Particular By Name & ID
     
-    public void getAdvice(String name,String id){
+    public Advice getAdvice(String name,String id){
         boolean found=false;
         String ID=""; 
         String Name="";
         String date="";
         String desc="";
+        int index = 0;
+        String line = null;
+        BufferedReader reader=null;
+         
         
         try {
-           x=new Scanner(new File(filepath));
-           x.useDelimiter("[,\n]");
+            reader = new BufferedReader(new FileReader(filepath));
+            reader.readLine();
+            while ((line = reader.readLine()) != null)  {
+               x=new Scanner(line);
+            x.useDelimiter(","); 
+            
+           
            
            while(x.hasNext() && !found){
-               ID=x.next();
-               Name=x.next();
-               date=x.next();
-               desc=x.next();
-               
+               String Data = x.next();
+               if(index == 0) ID = Data;
+               else if(index == 1) Name = Data;
+               else if(index == 2) date = Data;
+               else if(index == 3) desc = Data;
+               index++;
+                System.out.println( "Debugging:->" + " ID= "+ID+", Name= "+Name+", Date= "+date+", Advice= "+desc);
                if(ID.equals(id) && Name.equals(name)){
                   found=true; 
+                  
+                  break;
                }
-           }
+           } 
+           index = 0;
            if(found){
-               System.out.println("ID="+ID+"Name="+Name+"Date="+date+"Advice="+desc);
+               date = x.next();
+               desc = x.next();
+               System.out.println("Found:-> " + " ID= "+ID+", Name= "+Name+", Date= "+date+", Advice= "+desc);
+               Advice ad = new Advice(ID, Name, date, desc);
+               return ad;
            }
-           else{
+           
+            }
+          
                System.out.println("No records found");
-           }
+               return null;
            
         }
         catch(Exception e){
-            System.out.println("Error");
+            System.out.println(e);
         }
+        return null;
     }
     
     public boolean dohousekeeping(){
@@ -156,7 +179,7 @@ public class AdviceManager {
     
     public static void main(String[] args) {
         
-//        AdviceManager mgr= new AdviceManager();
+        AdviceManager mgr= new AdviceManager();
 //        mgr.giveadvice(new Advice("107","Rajat Malhotra","24-02-2021","Paracetamol , Take Rest"));
 //        mgr.giveadvice(new Advice("108","Raja Roy","24-02-2021","PAN-40,Drink boiled Water"));
 //        System.out.println(mgr.viewadvice());
@@ -164,7 +187,15 @@ public class AdviceManager {
         //assert(mgr.getlistofpatients().size()==2);
         //assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
         
+        //mgr.getAdvice("Alex Panda", "103");
         
+        
+        // JFrame UI
+        JFrame ViewAdvicesUI = new ViewAdviceUI(mgr);
+        JFrame GiveAdvicesUI = new GiveAdviceUI(mgr);
+        
+        ViewAdvicesUI.setVisible(true);
+        GiveAdvicesUI.setVisible(true);
         
         }
     

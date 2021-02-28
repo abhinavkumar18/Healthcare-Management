@@ -32,8 +32,8 @@ public class HealthcareApp {
           new PatientUI().setVisible(true);
           
 
-            new ViewAdviceUI().setVisible(true);
-            new GiveAdviceUI().setVisible(true);
+//            new ViewAdviceUI().setVisible(true);
+//            new GiveAdviceUI().setVisible(true);
     }
     
 }
