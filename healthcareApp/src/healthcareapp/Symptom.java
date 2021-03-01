@@ -23,17 +23,31 @@ public class Symptom {
      public String getpatientid(){
         return patientid;
     }
+     
     public String getpatientname(){
         return patientname;
     }
+    
     public String getdatetime(){
         return datetime;
     }
+    
     public String getsymptoms(){
         return symptoms;
     }
-public Symptom(String patientid,String patientname,String datetime,String symptoms){
-        this.patientid=patientid;
+    
+    public static String getRandomNumberString() {
+    // It will generate 6 digit random Number.
+    // from 0 to 999999
+    Random rnd = new Random();
+    int number = rnd.nextInt(999999);
+
+    // this will convert any number sequence into 6 character.
+    return String.format("%06d", number);
+}
+    
+    public Symptom(String patientname,String datetime,String symptoms){
+        this.patientid= getRandomNumberString(); // To create a Unique randomUUID
         this.patientname=patientname;
         this.datetime=datetime;
         this.symptoms=symptoms;
@@ -41,8 +55,8 @@ public Symptom(String patientid,String patientname,String datetime,String sympto
     }
     
     public String toString(){
-        return "Patient Id:"+getpatientid()+"Patient Name:"+getpatientname()+
-                "Date Time:"+getdatetime()+"Description:"+getsymptoms();
+        return "Patient Id: "+getpatientid()+", Patient Name: "+getpatientname()+
+                ", Date Time: "+getdatetime()+", Description: "+getsymptoms();
         
     }
     

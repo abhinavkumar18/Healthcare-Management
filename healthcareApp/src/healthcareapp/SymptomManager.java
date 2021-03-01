@@ -11,23 +11,30 @@ import java.io.*;
  * @author kmrakash
  */
 public class SymptomManager {
-    public String filepath="/home/kmrakash/college/Software engineering/healthcareApp/src/healthcareapp/Symptoms.csv";
+    public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/Symptoms.csv";
+    
     private List<Symptom> symptomsList;
     private List<Symptom> result;
+    
+    //init
     public boolean init(String filename){
         boolean result=false;
-        this.symptomsList.add(new Symptom("107","Rajat Malhotra","24-02-2021","Fever,Headache,coughing"));
-        this.symptomsList.add(new Symptom("108","Raja Roy","24-02-2021","loose motions,weakness"));
+        this.symptomsList.add(new Symptom("Rajat Malhotra","24-02-2021","Fever,Headache,coughing"));
+        this.symptomsList.add(new Symptom("Raja Roy","24-02-2021","loose motions,weakness"));
         result=true;
         return result;   
     }
+    
+    //constructor
     public SymptomManager(){
         this.symptomsList=new ArrayList<Symptom>();
     }
+    
+    //Get info class
     public List<Symptom>getinfo(){
         
         result=Collections.unmodifiableList(this.symptomsList);
-        result=new ArrayList(result);
+        result=new ArrayList<Symptom>(result);
         result.clear();
        
         
@@ -69,10 +76,12 @@ public class SymptomManager {
         
         return result;
     }
+    
+    //Upload Symptoms 
     public boolean uploadsymptoms(Symptom newSymptom){
         boolean result=false;
         this.symptomsList.add(newSymptom);
-        System.out.println("uploaded "+newSymptom.toString());
+        System.out.println("uploaded: "+newSymptom.toString());
         
         // Adding NewPatient into CSV File
         FileWriter filewriter=null;
@@ -105,6 +114,8 @@ public class SymptomManager {
         result=true;
         return result;
     }
+    
+    
     public boolean dohousekeeping(){
         return true;
     }
@@ -113,8 +124,8 @@ public class SymptomManager {
     public static void main(String[] args) {
         
         SymptomManager mgr= new SymptomManager();
-        mgr.uploadsymptoms(new Symptom("107","Rajat Malhotra","24-02-2021","Fever,Headache,coughing"));
-        mgr.uploadsymptoms(new Symptom("108","Raja Roy","24-02-2021","loose motions,weakness"));
+        mgr.uploadsymptoms(new Symptom("Abhishek Malhotra","24-02-2021","Fever,Headache,coughing"));
+        mgr.uploadsymptoms(new Symptom("Raja Rajesh","24-02-2021","loose motions,weakness"));
         System.out.println(mgr.getinfo());
         //mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
         //assert(mgr.getlistofpatients().size()==2);
