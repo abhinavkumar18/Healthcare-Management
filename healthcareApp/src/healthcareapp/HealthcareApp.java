@@ -29,7 +29,7 @@ public class HealthcareApp {
           //giveAdvUI;
           
           // Patient Ui
-          new PatientUI().setVisible(true);
+         // new PatientUI().setVisible(true);
           
 
 //            new ViewAdviceUI().setVisible(true);
