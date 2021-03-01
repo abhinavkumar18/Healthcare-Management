@@ -14,6 +14,9 @@ public class GiveAdviceUI extends javax.swing.JFrame {
     /**
      * Creates new form GiveAdviceUI
      */
+    public GiveAdviceUI() {
+        initComponents();
+    }
     private AdviceManager advMgr;
     
     public GiveAdviceUI(AdviceManager advMgr) {
@@ -217,4 +220,4 @@ public class GiveAdviceUI extends javax.swing.JFrame {
     private javax.swing.JTextField patientId;
     private javax.swing.JTextField patientName;
     // End of variables declaration//GEN-END:variables
-}
+   }

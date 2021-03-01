@@ -12,7 +12,11 @@ import javax.swing.*;
  * @author kmrakash
  */
 public class PatientUI extends javax.swing.JFrame {
-  private PatientManager PM;
+  
+    public PatientUI(){
+        initComponents();
+    }
+    private PatientManager PM;
     /**
      * Creates new form PatientUI
      */
@@ -143,4 +147,5 @@ public class PatientUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
 }

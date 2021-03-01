@@ -16,7 +16,9 @@ public class SymptomUI extends javax.swing.JFrame {
     /**
      * Creates new form SymptomUI
      */
-    
+    public SymptomUI(){
+        initComponents();
+    }
     private SymptomManager mgr;
     
     public SymptomUI(SymptomManager mgr) {
@@ -282,4 +284,6 @@ public class SymptomUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
 }
+
