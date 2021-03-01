@@ -7,6 +7,7 @@ package healthcareapp;
 
 import java.util.*;
 import java.io.*;
+import javax.swing.JFrame;
 /**
  *
  * @author Akash
@@ -119,6 +120,8 @@ public class PatientManager{
 //        assert(mgr.getlistofpatients().size()==2);
 //        assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
         
+    JFrame PatientsUI = new PatientUI(mgr);
+    PatientsUI.setVisible(true);
         
         
         }

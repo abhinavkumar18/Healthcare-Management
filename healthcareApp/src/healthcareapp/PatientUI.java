@@ -12,13 +12,13 @@ import javax.swing.*;
  * @author kmrakash
  */
 public class PatientUI extends javax.swing.JFrame {
-
+  private PatientManager PM;
     /**
      * Creates new form PatientUI
      */
-    public PatientUI() {
+    public PatientUI(PatientManager PM) {
         initComponents();
-         PatientManager PM = new PatientManager();
+         this.PM = PM;
     List<Patient> patientList = PM.getlistofpatients();
     for(Patient P: patientList) {
         String s = P.id + " " + P.name;
