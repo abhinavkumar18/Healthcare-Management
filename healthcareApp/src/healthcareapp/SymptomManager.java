@@ -6,6 +6,7 @@
 package healthcareapp;
 import java.util.*;
 import java.io.*;
+import javax.swing.JFrame;
 /**
  *
  * @author kmrakash
@@ -131,8 +132,10 @@ public class SymptomManager {
         //assert(mgr.getlistofpatients().size()==2);
         //assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
         
+        //create Screens
+        JFrame SymptomsUI = new SymptomUI(mgr);
         
-        
+        SymptomsUI.setVisible(true);
         }
     
 }

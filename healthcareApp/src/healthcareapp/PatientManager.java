@@ -29,7 +29,7 @@ public class PatientManager{
     public List<Patient>getlistofpatients(){
         
     result=Collections.unmodifiableList(this.patientList);
-        result=new ArrayList(result);
+        result=new ArrayList<Patient>(result);
         result.clear();
        
         
