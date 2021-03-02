@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  * @author Akash
  */
 public class PatientManager{
-    public String filepath="/home/kmrakash/college/Software engineering/healthcareApp/src/healthcareapp/Patientlist.csv";
+    public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/Patientlist.csv";
     private  List<Patient> patientList;
     private List<Patient> result;
 //    public boolean init(String filename){

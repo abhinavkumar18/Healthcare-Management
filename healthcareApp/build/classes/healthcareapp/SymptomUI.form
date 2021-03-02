@@ -59,14 +59,9 @@
                                           <Component id="Date" pref="211" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jCheckBoxDehydration" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxWeakness" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxHeadache" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="jCheckBoxDehydration" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxWeakness" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxHeadache" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
