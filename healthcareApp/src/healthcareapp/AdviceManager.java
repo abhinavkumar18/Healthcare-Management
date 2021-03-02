@@ -144,7 +144,7 @@ public class AdviceManager {
                else if(index == 2) date = Data;
                else if(index == 3) desc = Data;
                index++;
-                System.out.println( "Debugging:->" + " ID= "+ID+", Name= "+Name+", Date= "+date+", Advice= "+desc);
+               // System.out.println( "Debugging:->" + " ID= "+ID+", Name= "+Name+", Date= "+date+", Advice= "+desc);
                if(ID.equals(id) && Name.equals(name)){
                   found=true; 
                   
@@ -155,7 +155,7 @@ public class AdviceManager {
            if(found){
                date = x.next();
                desc = x.next();
-               System.out.println("Found:-> " + " ID= "+ID+", Name= "+Name+", Date= "+date+", Advice= "+desc);
+              // System.out.println("Found:-> " + " ID= "+ID+", Name= "+Name+", Date= "+date+", Advice= "+desc);
                Advice ad = new Advice(ID, Name, date, desc);
                return ad;
            }
