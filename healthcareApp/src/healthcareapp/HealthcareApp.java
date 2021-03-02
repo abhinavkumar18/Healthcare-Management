@@ -5,6 +5,7 @@
  */
 package healthcareapp;
 import java.util.*;
+import javax.swing.*;
 
 /**
  *
@@ -18,22 +19,14 @@ public class HealthcareApp {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        // Advice Control Class
-//        AdviceManager advMgr = new AdviceManager();
-//        Advice adv = new Advice("123", "remo", "25/02/2021", "Take care");
-//        advMgr.giveadvice(adv);
-//        advMgr.viewadvice();
-
-          // give Advice UI 
-          
-          //giveAdvUI;
-          
-          // Patient Ui
-         // new PatientUI().setVisible(true);
-          
-
-//            new ViewAdviceUI().setVisible(true);
-//            new GiveAdviceUI().setVisible(true);
+       PatientManager ptnMgr = new PatientManager();
+       AdviceManager advMgr = new AdviceManager();
+       SymptomManager symMgr = new SymptomManager();
+       
+       JFrame WelcomeUI = new Welcome(ptnMgr, advMgr, symMgr);
+       
+       WelcomeUI.setVisible(true);
+       
     }
     
 }
