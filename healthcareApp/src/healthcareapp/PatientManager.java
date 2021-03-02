@@ -16,6 +16,7 @@ public class PatientManager{
     public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/Patientlist.csv";
     private List<Patient> patientList;
     private List<Patient> result;
+    private Scanner x;
 //    public boolean init(String filename){
 //        boolean result=false;
 //        this.patientList.add(new Patient("107","Rajat Malhotra","Orissa","raj123@gmail.com","raj345"));
@@ -143,6 +144,40 @@ public class PatientManager{
                 e.printStackTrace();
             }
         }
+    }
+    
+    public boolean Login(String Email,String Pass){
+        String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredPatients.csv";
+        boolean found=false;
+        String email="";
+        String pass="";
+        String name="";
+        String id="";
+        try{
+            x=new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+                
+                while(x.hasNext() && !found){
+                    id=x.next();
+                    name=x.next();
+                    x.next();
+                    x.next();
+                    x.next();
+                    x.next();
+                    email=x.next();
+                    pass=x.next();
+                    
+                    if(email.equals(Email) && pass.equals(Pass)){
+                        found=true;
+                    }
+                }
+                
+                return found;
+                
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return found;
     }
     public boolean dohousekeeping(){
         return true;

@@ -6,6 +6,7 @@
 package healthcareapp;
 
 import java.io.*;
+import java.util.Scanner;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Doctor {
     public String Email;
     public String Password;
     public String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredDoctors.csv";
-    
+    private Scanner x;
     public void Register(String id,String name,String gender,String dob,String hospital,String qual,String spec,String add,String phn,String email,String pass){
         
         FileWriter fileWriter=null;
@@ -67,8 +68,36 @@ public class Doctor {
         }
         
     }
-    public void login(){
+    public boolean login(String Email,String Pass){
+        boolean found=false;
+        String email="";
+        String pass="";
+        String name="";
+        String id="";
+        try{
+            x=new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+                
+                while(x.hasNext() && !found){
+                    id=x.next();
+                    name=x.next();
+                    for(int i=0;i<=6;i++){
+                        x.next();
+                    }
+                    email=x.next();
+                    pass=x.next();
+                    
+                    if(email.equals(Email) && pass.equals(Pass)){
+                        found=true;
+                    }
+                }
+                return found;
+        }catch(Exception e){
+            System.out.println(e);
+        }
         
+        
+        return found;
     }
     
 }

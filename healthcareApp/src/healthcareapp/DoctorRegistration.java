@@ -295,18 +295,22 @@ public class DoctorRegistration extends javax.swing.JFrame {
         
         
         if(Pass.equals(Cpass)){
-            if(male.isSelected()){
+            if(!Id.equals("") && !Name.equals("") && !Dob.equals("") && !Hos.equals("") && !Qual.equals("") && !Spec.equals("") && !Add.equals("") && !Phn.equals("") && !Email.equals("") && !Pass.equals("")){
+                if(male.isSelected()){
                 Gender="Male";
-        }
-        else if(female.isSelected()){
+            }
+                else if(female.isSelected()){
                 Gender="Female";
-        }
-            doc.Register(Id, Name, Gender, Dob, Hos, Qual, Spec, Add, Phn, Email, Pass);
-            JOptionPane.showMessageDialog(this,"Registered");
-            Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,doc);
-            obj.setVisible(true);
-            this.setVisible(false);
-            
+            }
+                doc.Register(Id, Name, Gender, Dob, Hos, Qual, Spec, Add, Phn, Email, Pass);
+                JOptionPane.showMessageDialog(this,"Registered");
+                Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,doc);
+                obj.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Please fill up all the details");
+            }
         }
         else{
             JOptionPane.showMessageDialog(this,"Password not matched");

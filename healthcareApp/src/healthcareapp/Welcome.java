@@ -179,14 +179,26 @@ public class Welcome extends javax.swing.JFrame {
         }
         else{
             if(Patient.isSelected()){
-                PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc);
-                obj.setVisible(true);
-                this.setVisible(false);
+                if(ptnMgr.Login(E, P)){
+                    PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc);
+                    obj.setVisible(true);
+                    this.setVisible(false);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"Invalid Credentials");
+                }
+                
             }
             else if(Doctor.isSelected()){
-                DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,doc);
-                obj.setVisible(true);
-                this.setVisible(false);
+                if(doc.login(E, P)){
+                    DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,doc);
+                    obj.setVisible(true);
+                    this.setVisible(false);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this,"Invalid Credentials");
+                }
+                
             }
             else{
                 JOptionPane.showMessageDialog(this,"Please choose role");

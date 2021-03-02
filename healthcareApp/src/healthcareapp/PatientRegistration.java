@@ -73,8 +73,18 @@ public class PatientRegistration extends javax.swing.JFrame {
         jLabel4.setText("Gender");
 
         male.setText("Male");
+        male.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maleActionPerformed(evt);
+            }
+        });
 
         female.setText("Female");
+        female.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                femaleActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Date of birth");
 
@@ -231,23 +241,42 @@ public class PatientRegistration extends javax.swing.JFrame {
         String Cpass=cpass.getText();
         
         if(Pass.equals(Cpass)){
-            if(male.isSelected()){
+            if(!ID.equals("") && !Name.equals("") && !DOB.equals("") && !Add.equals("") && !Phn.equals("") && !Email.equals("") && !Pass.equals(""))
+            {
+                if(male.isSelected()){
                 Gender="Male";
             }
-            else if(female.isSelected()){
-                Gender="Female";
+                else if(female.isSelected()){
+                    Gender="Female";
             }
-            ptnMgr.Register(ID, Name, Gender, DOB, Add, Phn, Email, Pass);
-            JOptionPane.showMessageDialog(this,"Registered");
-            Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,doc);
-            obj.setVisible(true);
-            this.setVisible(false);
-            
+                ptnMgr.Register(ID, Name, Gender, DOB, Add, Phn, Email, Pass);
+                JOptionPane.showMessageDialog(this,"Registered");
+                Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,doc);
+                obj.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Please fill up all the details");
+            }
         }
         else{
             JOptionPane.showMessageDialog(this,"Password not matched");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maleActionPerformed
+        // TODO add your handling code here:
+        if(male.isSelected()){
+            female.setSelected(false);
+        }
+    }//GEN-LAST:event_maleActionPerformed
+
+    private void femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_femaleActionPerformed
+        // TODO add your handling code here:
+        if(female.isSelected()){
+            male.setSelected(false);
+        }
+    }//GEN-LAST:event_femaleActionPerformed
 
     /**
      * @param args the command line arguments

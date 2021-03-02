@@ -133,7 +133,7 @@ public class AdviceManager {
             reader.readLine();
             while ((line = reader.readLine()) != null)  {
                x=new Scanner(line);
-            x.useDelimiter(","); 
+               x.useDelimiter(","); 
             
            
            
