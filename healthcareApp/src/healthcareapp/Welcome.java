@@ -20,11 +20,13 @@ public class Welcome extends javax.swing.JFrame {
     private PatientManager ptnMgr;
     private AdviceManager advMgr;
     private SymptomManager symMgr;
+    private Doctor doc;
     
-    public Welcome(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr) {
+    public Welcome(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
+        this.doc=doc;
         initComponents();
     }
 
@@ -177,12 +179,12 @@ public class Welcome extends javax.swing.JFrame {
         }
         else{
             if(Patient.isSelected()){
-                PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr);
+                PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc);
                 obj.setVisible(true);
                 this.setVisible(false);
             }
             else if(Doctor.isSelected()){
-                DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr);
+                DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,doc);
                 obj.setVisible(true);
                 this.setVisible(false);
             }
@@ -196,7 +198,7 @@ public class Welcome extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Registration obj=new Registration(ptnMgr, advMgr, symMgr);
+        Registration obj=new Registration(ptnMgr, advMgr, symMgr,doc);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

@@ -16,14 +16,16 @@ public class Registration extends javax.swing.JFrame {
     /**
      * Creates new form Registration
      */
-        private PatientManager ptnMgr;
+    private PatientManager ptnMgr;
     private AdviceManager advMgr;
     private SymptomManager symMgr;
+    private Doctor doc;
     
-    public Registration(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr) {
+    public Registration(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
+        this.doc=doc;
         initComponents();
     }
 
@@ -124,7 +126,7 @@ public class Registration extends javax.swing.JFrame {
             this.setVisible(false);
         }
         else if(Doctor.isSelected()){
-            DoctorRegistration obj=new DoctorRegistration(ptnMgr, advMgr, symMgr);
+            DoctorRegistration obj=new DoctorRegistration(ptnMgr, advMgr, symMgr,doc);
             obj.setVisible(true);
             this.setVisible(false);
         }
@@ -135,7 +137,7 @@ public class Registration extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Welcome obj=new Welcome(ptnMgr, advMgr, symMgr);
+        Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,doc);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

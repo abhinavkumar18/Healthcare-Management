@@ -19,6 +19,9 @@ public class Patient {
     public String address;
     public String email;
     public String password;
+    public String gender;
+    public String dob;
+    public String phnno;
     
     public String getpatientid(){
         return id;
@@ -35,15 +38,27 @@ public class Patient {
     public String getpatientpassword(){
         return password;
     }
+    public String getpatientgender(){
+        return gender;
+    }
+    public String getpatientdob(){
+        return dob;
+    }
+    public String getpatientphnno(){
+        return phnno;
+    }
     
     Patient(){};
         
-    public Patient(String id,String name,String address,String email,String password){
+    public Patient(String id,String name,String address,String email,String password,String gender,String dob,String phnno){
         this.id=id;
         this.name=name;
         this.address=address;
         this.email=email;
         this.password=password;
+        this.gender=gender;
+        this.dob=dob;
+        this.phnno=phnno;
     }
     
     public String toString(){
@@ -52,6 +67,8 @@ public class Patient {
                 " Patient Password: "+getpatientpassword();
         
     }
+    
+    
 }
 
     /**

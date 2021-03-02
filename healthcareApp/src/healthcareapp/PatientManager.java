@@ -14,7 +14,7 @@ import javax.swing.JFrame;
  */
 public class PatientManager{
     public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/Patientlist.csv";
-    private  List<Patient> patientList;
+    private List<Patient> patientList;
     private List<Patient> result;
 //    public boolean init(String filename){
 //        boolean result=false;
@@ -107,6 +107,42 @@ public class PatientManager{
         
         result=true;
         return result;
+    }
+    
+    public void Register(String id,String name,String gender,String dob,String add,String phn,String email,String pass){
+        FileWriter fileWriter=null;
+        String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredPatients.csv";
+        try{
+            fileWriter=new FileWriter(filepath,true);
+            fileWriter.append(id);
+            fileWriter.append(",");
+            fileWriter.append(name);
+            fileWriter.append(",");
+            fileWriter.append(gender);
+            fileWriter.append(",");
+            fileWriter.append(dob);
+            fileWriter.append(",");
+            fileWriter.append(add);
+            fileWriter.append(",");
+            fileWriter.append(phn);
+            fileWriter.append(",");
+            fileWriter.append(email);
+            fileWriter.append(",");
+            fileWriter.append(pass);
+            fileWriter.append("\n");
+            
+            
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }finally{
+            try{
+                fileWriter.flush();
+                fileWriter.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
     }
     public boolean dohousekeeping(){
         return true;

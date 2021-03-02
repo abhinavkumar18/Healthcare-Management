@@ -14,17 +14,19 @@ public class DoctorLogin extends javax.swing.JFrame {
     /**
      * Creates new form DoctorLogin
      */
-        private PatientManager ptnMgr;
+    private PatientManager ptnMgr;
     private AdviceManager advMgr;
     private SymptomManager symMgr;
+    private Doctor doc;
     
     /**
      * Creates new form PatientLogin
      */
-    public DoctorLogin(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr) {
+    public DoctorLogin(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
+        this.doc=doc;
         initComponents();
     }
 
@@ -123,7 +125,7 @@ public class DoctorLogin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Welcome obj=new Welcome(ptnMgr, advMgr, symMgr);
+        Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,doc);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
