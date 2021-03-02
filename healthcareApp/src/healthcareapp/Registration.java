@@ -131,7 +131,7 @@ public class Registration extends javax.swing.JFrame {
             this.setVisible(false);
         }
         else{
-            JOptionPane.showMessageDialog(this,"Please fill up the details first");
+            JOptionPane.showMessageDialog(this,"Please select role");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
