@@ -46,8 +46,8 @@ public class Symptom {
     return String.format("%06d", number);
 }
     
-    public Symptom(String patientname,String datetime,String symptoms){
-        this.patientid= getRandomNumberString(); // To create a Unique randomUUID
+    public Symptom(String patientID, String patientname,String datetime,String symptoms){
+        this.patientid= patientID;
         this.patientname=patientname;
         this.datetime=datetime;
         this.symptoms=symptoms;

@@ -16,15 +16,21 @@ public class SymptomUI extends javax.swing.JFrame {
     /**
      * Creates new form SymptomUI
      */
-    public SymptomUI(){
-        initComponents();
-    }
-    private SymptomManager mgr;
+//    public SymptomUI(){
+//        initComponents();
+//    }
+    private PatientManager ptnMgr;
+    private AdviceManager advMgr;
+    private SymptomManager symMgr;
+    private Doctor doc;
     
-    public SymptomUI(SymptomManager mgr) {
-        
+    public SymptomUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc) {
+        this.ptnMgr = ptnMgr;
+        this.advMgr = advMgr;
+        this.symMgr = symMgr;
+        this.doc=doc;
         initComponents();
-        this.mgr = mgr;
+        
     }
 
     /**
@@ -52,6 +58,9 @@ public class SymptomUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Others = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        PatientID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Symptoms");
@@ -65,6 +74,12 @@ public class SymptomUI extends javax.swing.JFrame {
         });
 
         jLabel2.setText("Date");
+
+        Date.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DateActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Symptoms");
 
@@ -93,6 +108,21 @@ public class SymptomUI extends javax.swing.JFrame {
 
         jLabel4.setText("If any others , Please specify");
 
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Patient ID");
+
+        PatientID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PatientIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,7 +131,11 @@ public class SymptomUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jSeparator1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -120,39 +154,42 @@ public class SymptomUI extends javax.swing.JFrame {
                                             .addComponent(jLabel4))))
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(7, 7, 7)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(PatientName)
-                                            .addComponent(Date, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBoxDehydration)
-                                            .addComponent(jCheckBoxWeakness)
-                                            .addComponent(jCheckBoxHeadache)))))
+                                    .addComponent(jCheckBoxDehydration)
+                                    .addComponent(jCheckBoxWeakness)
+                                    .addComponent(jCheckBoxHeadache)
+                                    .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(PatientID)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(46, 46, 46)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(46, 46, 46)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(114, 114, 114)
+                                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(42, 42, 42)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 7, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(197, 197, 197)
-                .addComponent(btnSubmit)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(PatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PatientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(Date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -172,9 +209,11 @@ public class SymptomUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btnSubmit)
-                .addGap(51, 51, 51))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSubmit)
+                    .addComponent(jButton1))
+                .addGap(60, 60, 60))
         );
 
         pack();
@@ -188,6 +227,7 @@ public class SymptomUI extends javax.swing.JFrame {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         String patientName = PatientName.getText();
+        String patientID = PatientID.getText();
         String date = Date.getText();
         String fever = "" , cough = "" , dehydration = "", headache = "", weakness = "", soreThroat = "", others = Others.getText(), symptoms = "";
         
@@ -196,40 +236,35 @@ public class SymptomUI extends javax.swing.JFrame {
         } else if(date.equals("")) {
             JOptionPane.showMessageDialog(null, "Date can not be empty");
         } else {
-            if(jCheckBoxFever.isSelected()) {
-                fever += "Fever";
-            } else {
-                fever = "";
-            }
             
-            if(jCheckBoxCough.isSelected()) {
-                cough += "Cough";
-            } else {
-                cough = "";
-            }
-            
-            if(jCheckBoxDehydration.isSelected()) {
-                dehydration += "Dehydration";
-            } else {
-                dehydration = "";
-            }
-            
-            if(jCheckBoxHeadache.isSelected()) {
-                headache += "Headache";
-            } else {
-                headache = "";
-            }
-            
-            if(jCheckBoxSoreThroat.isSelected()) {
-                soreThroat += "Sore Throat";
-            } else {
-                soreThroat = "";
-            }
-            
-            System.out.println(fever + ", " + cough + ", " + dehydration + ", " + headache + ", " + soreThroat+ ", " + others);
-            
+            fever = jCheckBoxFever.isSelected() ? "Fever" : "";
+            cough = jCheckBoxCough.isSelected() ? "Cough" : "";
+            dehydration = jCheckBoxDehydration.isSelected() ? "Dehydration" : "";
+            weakness = jCheckBoxWeakness.isSelected() ? "Weakness" : "";
+            headache = jCheckBoxHeadache.isSelected() ? "Headache" : "";
+            soreThroat = jCheckBoxSoreThroat.isSelected() ? "Sore Throat" : "";
+           
+            symptoms = fever + ", " + cough + ", " + dehydration + ", " + weakness + ", " + headache + ", " + soreThroat+ ", " + others;
+            System.out.println(symptoms);
+            symMgr.uploadsymptoms(new Symptom(patientID, patientName, date, symptoms));
+            JOptionPane.showMessageDialog(null, "Your Data is recorded", "Suceess", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void DateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DateActionPerformed
+
+    private void PatientIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PatientIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PatientIDActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc);
+                    obj.setVisible(true);
+                    this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,8 +304,10 @@ public class SymptomUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Date;
     private javax.swing.JTextArea Others;
+    private javax.swing.JTextField PatientID;
     private javax.swing.JTextField PatientName;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBoxCough;
     private javax.swing.JCheckBox jCheckBoxDehydration;
     private javax.swing.JCheckBox jCheckBoxFever;
@@ -281,6 +318,7 @@ public class SymptomUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables

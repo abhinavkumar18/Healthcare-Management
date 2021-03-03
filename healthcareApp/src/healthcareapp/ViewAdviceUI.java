@@ -14,16 +14,23 @@ import javax.swing.*;
 public class ViewAdviceUI extends javax.swing.JFrame {
 
     
-    public ViewAdviceUI(){
-        initComponents();
-    }
+//    public ViewAdviceUI(){
+//        initComponents();
+//    }
+    private PatientManager ptnMgr;
     private AdviceManager advMgr;
+    private SymptomManager symMgr;
+    private Doctor doc;
     /**
      * Creates new form ViewAdviceUI
      */
-    public ViewAdviceUI(AdviceManager advMgr) {
+    public ViewAdviceUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc) {
+        this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
+        this.symMgr = symMgr;
+        this.doc=doc;
         initComponents();
+        
     }
 
     /**
@@ -66,7 +73,7 @@ public class ViewAdviceUI extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cancel");
+        jButton2.setText("Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -159,7 +166,9 @@ public class ViewAdviceUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
+         PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc);
+                    obj.setVisible(true);
+                    this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

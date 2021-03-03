@@ -24,7 +24,7 @@ public class Doctor {
     public String Phnno;
     public String Email;
     public String Password;
-    public String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredDoctors.csv";
+    public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredDoctors.csv";
     private Scanner x;
     public void Register(String id,String name,String gender,String dob,String hospital,String qual,String spec,String add,String phn,String email,String pass){
         

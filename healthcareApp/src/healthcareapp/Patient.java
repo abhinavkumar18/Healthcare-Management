@@ -62,9 +62,9 @@ public class Patient {
     }
     
     public String toString(){
-        return "Patient Id: "+getpatientid()+" Patient Name: "+getpatientname()+
-                " Patient Address: "+getpatientaddress()+" Patient Email: "+getpatientemail()+
-                " Patient Password: "+getpatientpassword();
+        return "Patient Id: "+getpatientid()+"\nPatient Name: "+getpatientname()+
+                "\nPatient Address: "+getpatientaddress()+"\nPatient Email: "+getpatientemail()+
+                "\nPatient Password: "+getpatientpassword();
         
     }
     

@@ -1,4 +1,4 @@
-Id,Name,Address,Email,Password
+Id,Name,Address,Email,Password,Gender,Date of birth,Phone number
 301,lokesh,jharkhand,momo,tasdh
 401,goku,dragon,goku91,ftygh
 501,Akash,Raiganj,kunduakash91,akash@123
@@ -10,3 +10,6 @@ Id,Name,Address,Email,Password
 12,Abhinav,Address,Abhinav@xyz,123
 121,Abhishek,Address,Abhishek@xyz,123
 123,Abhinav,Kolkata,AbKol@xyz,123kol
+pat123,PatientName,Male,01/01/2021,Kolkata,1234567890,pat@gmail.com,123456
+pat123,PatientName,Male,01/01/2021,Kolkata,1234567890,pat@gmail.com,123456
+pat123,PatientName,Male,01/01/2021,Kolkata,1234567890,pat@gmail.com,123456

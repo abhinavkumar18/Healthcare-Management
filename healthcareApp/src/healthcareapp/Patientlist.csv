@@ -10,3 +10,6 @@ Id,Name,Address,Email,Password,Gender,Date of birth,Phone number
 12,Abhinav,Address,Abhinav@xyz,123
 121,Abhishek,Address,Abhishek@xyz,123
 123,Abhinav,Kolkata,AbKol@xyz,123kol
+pat123,PatientName,Male,01/01/2021,Kolkata,1234567890,pat@gmail.com,123456
+pat123,PatientName,Male,01/01/2021,Kolkata,1234567890,pat@gmail.com,123456
+pat123,PatientName,Male,01/01/2021,Kolkata,1234567890,pat@gmail.com,123456

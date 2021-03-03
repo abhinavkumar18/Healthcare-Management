@@ -177,27 +177,27 @@ public class AdviceManager {
     }
     
     
-    public static void main(String[] args) {
-        
-        AdviceManager mgr= new AdviceManager();
-//        mgr.giveadvice(new Advice("107","Rajat Malhotra","24-02-2021","Paracetamol , Take Rest"));
-//        mgr.giveadvice(new Advice("108","Raja Roy","24-02-2021","PAN-40,Drink boiled Water"));
-//        System.out.println(mgr.viewadvice());
-        //mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
-        //assert(mgr.getlistofpatients().size()==2);
-        //assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
-        
-        //mgr.getAdvice("Alex Panda", "103");
-        
-        
-        // JFrame UI
-        JFrame ViewAdvicesUI = new ViewAdviceUI(mgr);
-        JFrame GiveAdvicesUI = new GiveAdviceUI(mgr);
-        
-        ViewAdvicesUI.setVisible(true);
-        GiveAdvicesUI.setVisible(true);
-        
-        }
+//    public static void main(String[] args) {
+//        
+//        AdviceManager mgr= new AdviceManager();
+////        mgr.giveadvice(new Advice("107","Rajat Malhotra","24-02-2021","Paracetamol , Take Rest"));
+////        mgr.giveadvice(new Advice("108","Raja Roy","24-02-2021","PAN-40,Drink boiled Water"));
+////        System.out.println(mgr.viewadvice());
+//        //mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
+//        //assert(mgr.getlistofpatients().size()==2);
+//        //assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
+//        
+//        //mgr.getAdvice("Alex Panda", "103");
+//        
+//        
+//        // JFrame UI
+//        JFrame ViewAdvicesUI = new ViewAdviceUI(mgr);
+//        JFrame GiveAdvicesUI = new GiveAdviceUI(mgr);
+//        
+//        ViewAdvicesUI.setVisible(true);
+//        GiveAdvicesUI.setVisible(true);
+//        
+//        }
     
 }
    

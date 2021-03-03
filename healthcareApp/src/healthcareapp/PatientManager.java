@@ -112,7 +112,10 @@ public class PatientManager{
     
     public void Register(String id,String name,String gender,String dob,String add,String phn,String email,String pass){
         FileWriter fileWriter=null;
-        String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredPatients.csv";
+       // String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredPatients.csv";
+       String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
+       
+       
         try{
             fileWriter=new FileWriter(filepath,true);
             fileWriter.append(id);
@@ -133,7 +136,7 @@ public class PatientManager{
             fileWriter.append("\n");
             
             
-            
+            System.out.println("Successfully , Registered");
         }catch(Exception ex){
             ex.printStackTrace();
         }finally{
@@ -147,7 +150,10 @@ public class PatientManager{
     }
     
     public boolean Login(String Email,String Pass){
-        String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredPatients.csv";
+      //  String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredPatients.csv";
+      String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
+      
+      
         boolean found=false;
         String email="";
         String pass="";
@@ -179,6 +185,67 @@ public class PatientManager{
         }
         return found;
     }
+    
+    public Patient getPatient(String Email) {
+        String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
+        
+        boolean found = false;
+         String id="";
+     String name="";
+     String address="";
+     String email="";
+    String pass="";
+    String gender="";
+     String dob="";
+    String phnno="";
+    
+    // ID, Name, Gender, DOB, Add, Phn, Email, Pass
+    
+    try{
+            x=new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+                
+                while(x.hasNext() && !found){
+                    id=x.next();
+                    //System.out.println(id);
+                    
+                    name=x.next();
+                    //System.out.println(name);
+                    
+                    gender =x.next();
+                    //System.out.println(gender);
+                    
+                    dob = x.next();
+                    //System.out.println(dob);
+                    
+                    address= x.next();
+                    //System.out.println(address);
+                    
+                    phnno= x.next();
+                    //System.out.println(phnno);
+                    
+                    email=x.next();
+                    //System.out.println(email);
+                    
+                    pass=x.next();
+                    //System.out.println(pass);
+                    
+                    if(email.equals(Email)){
+                        //String id,String name,String address,String email,String password,String gender,String dob,String phnno
+                        
+                        return new Patient(id, name, address, email, pass, gender, dob, phnno);
+                    }
+                }
+                
+                
+                
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    return new Patient();
+    }
+    
+    
     public boolean dohousekeeping(){
         return true;
     }
@@ -190,9 +257,14 @@ public class PatientManager{
        // mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
 //        assert(mgr.getlistofpatients().size()==2);
 //        assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
+
+    mgr.Register("pat125", "PatientName3", "Male", "01/01/2021", "Kolkata", "1234567890", "pat3@gmail.com", "123456");
+    Patient p = mgr.getPatient("pat3@gmail.com");
+    
+    System.out.println(p.toString());
         
-    JFrame PatientsUI = new PatientUI(mgr);
-    PatientsUI.setVisible(true);
+//    JFrame PatientsUI = new PatientUI(mgr);
+//    PatientsUI.setVisible(true);
         
         
         }
