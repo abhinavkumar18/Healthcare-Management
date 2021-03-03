@@ -36,15 +36,8 @@ public class Symptom {
         return symptoms;
     }
     
-    public static String getRandomNumberString() {
-    // It will generate 6 digit random Number.
-    // from 0 to 999999
-    Random rnd = new Random();
-    int number = rnd.nextInt(999999);
-
-    // this will convert any number sequence into 6 character.
-    return String.format("%06d", number);
-}
+   
+    Symptom() {};
     
     public Symptom(String patientID, String patientname,String datetime,String symptoms){
         this.patientid= patientID;
@@ -56,11 +49,8 @@ public class Symptom {
     
     public String toString(){
         return "Patient Id: "+getpatientid()+", Patient Name: "+getpatientname()+
-                ", Date Time: "+getdatetime()+", Description: "+getsymptoms();
+                ", Date Time: "+getdatetime()+", Symptoms: "+getsymptoms();
         
     }
     
-    Symptom(){
-        
-    }
 }

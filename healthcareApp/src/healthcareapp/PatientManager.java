@@ -13,7 +13,7 @@ import javax.swing.JFrame;
  * @author Akash
  */
 public class PatientManager{
-    public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/Patientlist.csv";
+    public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
     private List<Patient> patientList;
     private List<Patient> result;
     private Scanner x;
@@ -51,9 +51,9 @@ public class PatientManager{
                     Patient a= new Patient();
                     a.id=fields[0];
                     a.name=fields[1];
-                    a.address =fields[2];
-                    a.email =fields[3];
-                    a.password = fields[4];
+                    
+                    a.email =fields[6];
+                    a.password = fields[7];
                     
                     result.add(a);
                 }
@@ -72,43 +72,43 @@ public class PatientManager{
         
         return result;
     }
-    public boolean addpatient(Patient newPatient){
-        boolean result=false;
-        this.patientList.add(newPatient);
-        System.out.println("Added "+newPatient.toString());
-        
-        // Adding NewPatient into CSV File
-        FileWriter filewriter=null;
-        try{
-            filewriter= new FileWriter(filepath,true);
-            filewriter.append(newPatient.getpatientid());
-            filewriter.append(",");
-            filewriter.append(newPatient.getpatientname());
-            filewriter.append(",");
-            filewriter.append(newPatient.getpatientaddress());
-            filewriter.append(",");
-            filewriter.append(newPatient.getpatientemail());
-            filewriter.append(",");
-            filewriter.append(newPatient.getpatientpassword());
-            filewriter.append("\n");
-            
-        }catch(Exception ex){
-            ex.printStackTrace();
-            
-        }
-        finally{
-            try{
-                filewriter.flush();
-                filewriter.close();
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        }
-        
-        
-        result=true;
-        return result;
-    }
+//    public boolean addpatient(Patient newPatient){
+//        boolean result=false;
+//        this.patientList.add(newPatient);
+//        System.out.println("Added "+newPatient.toString());
+//        
+//        // Adding NewPatient into CSV File
+//        FileWriter filewriter=null;
+//        try{
+//            filewriter= new FileWriter(filepath,true);
+//            filewriter.append(newPatient.getpatientid());
+//            filewriter.append(",");
+//            filewriter.append(newPatient.getpatientname());
+//            filewriter.append(",");
+//            filewriter.append(newPatient.getpatientaddress());
+//            filewriter.append(",");
+//            filewriter.append(newPatient.getpatientemail());
+//            filewriter.append(",");
+//            filewriter.append(newPatient.getpatientpassword());
+//            filewriter.append("\n");
+//            
+//        }catch(Exception ex){
+//            ex.printStackTrace();
+//            
+//        }
+//        finally{
+//            try{
+//                filewriter.flush();
+//                filewriter.close();
+//            }catch(Exception e){
+//                e.printStackTrace();
+//            }
+//        }
+//        
+//        
+//        result=true;
+//        return result;
+//    }
     
     public void Register(String id,String name,String gender,String dob,String add,String phn,String email,String pass){
         FileWriter fileWriter=null;
@@ -258,10 +258,15 @@ public class PatientManager{
 //        assert(mgr.getlistofpatients().size()==2);
 //        assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
 
-    mgr.Register("pat125", "PatientName3", "Male", "01/01/2021", "Kolkata", "1234567890", "pat3@gmail.com", "123456");
-    Patient p = mgr.getPatient("pat3@gmail.com");
-    
-    System.out.println(p.toString());
+//    mgr.Register("pat125", "PatientName3", "Male", "01/01/2021", "Kolkata", "1234567890", "pat3@gmail.com", "123456");
+//    Patient p = mgr.getPatient("pat3@gmail.com");
+//    
+//    System.out.println(p.toString());
+
+        List<Patient> p = mgr.getlistofpatients();
+        for(Patient P: p) {
+            System.out.println(P.email);
+        }
         
 //    JFrame PatientsUI = new PatientUI(mgr);
 //    PatientsUI.setVisible(true);

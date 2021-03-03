@@ -1,7 +1,2 @@
-ID,Patient Name,Date/time,Symptoms
-690919,Abhishek Malhotra,24-02-2021,Fever,Headache,coughing
-848858,Raja Rajesh,24-02-2021,loose motions,weakness
-430623,Abhishek Malhotra,24-02-2021,Fever,Headache,coughing
-425799,Raja Rajesh,24-02-2021,loose motions,weakness
-
 pat@1,patient 1,01/02/2021,Fever, , , Weakness, , , 
+pat@2,Patient 2,03/03/2021,, , , Weakness, , , 

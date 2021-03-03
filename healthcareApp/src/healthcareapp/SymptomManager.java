@@ -16,6 +16,8 @@ public class SymptomManager {
     
     private List<Symptom> symptomsList;
     private List<Symptom> result;
+        private Scanner x;
+
     
     //init
 //    public boolean init(String filename){
@@ -116,15 +118,59 @@ public class SymptomManager {
         return result;
     }
     
+    public Symptom getSymptom(String id, String name) {
+        boolean found = false;
+        String ID = "";
+        String Name = "";
+        String Date = "";
+        String Symptoms = "";
+        int index = 0;
+        
+        try {
+            x=new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+            
+            while(x.hasNext() && !found) {
+                ID = x.next();
+                
+               // System.out.println("ID: "+ ID);
+                
+                Name = x.next();
+                //System.out.println("Name: "+ Name);
+                
+                Date = x.next();
+                //System.out.println("Date: "+ Date);
+                
+                index = 0;
+                Symptoms = "";
+                while(index <=6) {
+                    Symptoms += x.next();
+                    index++;
+                }
+                //System.out.println("Symptoms: "+ Symptoms);
+                if(ID.equals(id) && Name.equals(name)){
+                        found=true;
+                        return new Symptom(ID, Name, Date, Symptoms);
+                    }
+            }
+            
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        
+        return new Symptom();
+    }
+    
     
     public boolean dohousekeeping(){
         return true;
     }
     
     
-//    public static void main(String[] args) {
+   public static void main(String[] args) {
 //        
-//        SymptomManager mgr= new SymptomManager();
+        SymptomManager mgr= new SymptomManager();
 ////        mgr.uploadsymptoms(new Symptom("Abhishek Malhotra","24-02-2021","Fever,Headache,coughing"));
 ////        mgr.uploadsymptoms(new Symptom("Raja Rajesh","24-02-2021","loose motions,weakness"));
 ////        System.out.println(mgr.getinfo());
@@ -136,6 +182,9 @@ public class SymptomManager {
 //        JFrame SymptomsUI = new SymptomUI(mgr);
 //        
 //        SymptomsUI.setVisible(true);
-//        }
+
+        Symptom s= mgr.getSymptom("pat@2", "Patient 2");
+        System.out.println(s.toString());
+      }
 //    
 }

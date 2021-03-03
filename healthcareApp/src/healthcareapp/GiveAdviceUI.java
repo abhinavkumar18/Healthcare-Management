@@ -14,14 +14,24 @@ public class GiveAdviceUI extends javax.swing.JFrame {
     /**
      * Creates new form GiveAdviceUI
      */
-    public GiveAdviceUI() {
-        initComponents();
-    }
-    private AdviceManager advMgr;
     
-    public GiveAdviceUI(AdviceManager advMgr) {
+    private PatientManager ptnMgr;
+    private AdviceManager advMgr;
+    private SymptomManager symMgr;
+    private DoctorManager docMgr;
+    private String email;
+    private Patient p;
+    
+    public GiveAdviceUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String e) {
+        this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
+        this.symMgr = symMgr;
+        this.docMgr = docMgr;
+        this.email = e;
+        this.p = ptnMgr.getPatient(email);
         initComponents();
+        patientId.setText(p.getpatientid());
+        patientName.setText(p.getpatientname());
     }
 
     /**
@@ -44,6 +54,7 @@ public class GiveAdviceUI extends javax.swing.JFrame {
         description = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Give Advice");
@@ -70,6 +81,13 @@ public class GiveAdviceUI extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -102,8 +120,10 @@ public class GiveAdviceUI extends javax.swing.JFrame {
                 .addComponent(jSeparator1)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(145, 145, 145)
+                .addGap(69, 69, 69)
                 .addComponent(jButton1)
+                .addGap(35, 35, 35)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -128,7 +148,9 @@ public class GiveAdviceUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
@@ -172,6 +194,13 @@ public class GiveAdviceUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dateActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,docMgr, email);
+                    obj.setVisible(true);
+                    this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -211,6 +240,7 @@ public class GiveAdviceUI extends javax.swing.JFrame {
     private javax.swing.JTextField date;
     private javax.swing.JTextArea description;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
