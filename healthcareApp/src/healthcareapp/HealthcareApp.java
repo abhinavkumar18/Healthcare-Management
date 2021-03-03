@@ -22,9 +22,9 @@ public class HealthcareApp {
        PatientManager ptnMgr = new PatientManager();
        AdviceManager advMgr = new AdviceManager();
        SymptomManager symMgr = new SymptomManager();
-       Doctor doc=new Doctor();
+       DoctorManager docMgr = new DoctorManager();
        
-       JFrame WelcomeUI = new Welcome(ptnMgr, advMgr, symMgr,doc);
+       JFrame WelcomeUI = new Welcome(ptnMgr, advMgr, symMgr,docMgr);
        
        WelcomeUI.setVisible(true);
        

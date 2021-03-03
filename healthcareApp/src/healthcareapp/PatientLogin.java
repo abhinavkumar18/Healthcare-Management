@@ -16,7 +16,7 @@ public class PatientLogin extends javax.swing.JFrame {
     private PatientManager ptnMgr;
     private AdviceManager advMgr;
     private SymptomManager symMgr;
-    private Doctor doc;
+    private DoctorManager docMgr;
     private String email;
 //    private String name;
 //    private String id;
@@ -24,11 +24,11 @@ public class PatientLogin extends javax.swing.JFrame {
     /**
      * Creates new form PatientLogin
      */
-    public PatientLogin(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc, String e) {
+    public PatientLogin(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String e) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
-        this.doc=doc;
+        this.docMgr = docMgr;
         this.email = e;
         this.p = ptnMgr.getPatient(email);
 //        this.id = p.getpatientid();
@@ -173,13 +173,13 @@ public class PatientLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                .addGap(80, 80, 80))
         );
 
         pack();
@@ -188,21 +188,21 @@ public class PatientLogin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,doc);
+        Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,docMgr);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        SymptomUI obj=new SymptomUI(ptnMgr, advMgr, symMgr,doc, email);
+        SymptomUI obj=new SymptomUI(ptnMgr, advMgr, symMgr,docMgr, email);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ViewAdviceUI obj=new ViewAdviceUI(ptnMgr, advMgr, symMgr,doc, email);
+        ViewAdviceUI obj=new ViewAdviceUI(ptnMgr, advMgr, symMgr,docMgr, email);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

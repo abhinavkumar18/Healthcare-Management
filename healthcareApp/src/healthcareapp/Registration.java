@@ -19,13 +19,13 @@ public class Registration extends javax.swing.JFrame {
     private PatientManager ptnMgr;
     private AdviceManager advMgr;
     private SymptomManager symMgr;
-    private Doctor doc;
+    private DoctorManager docMgr;
     
-    public Registration(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc) {
+    public Registration(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
-        this.doc=doc;
+        this.docMgr = docMgr;
         initComponents();
     }
 
@@ -121,12 +121,12 @@ public class Registration extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         if(Patient.isSelected()){
-            PatientRegistration obj=new PatientRegistration(ptnMgr, advMgr, symMgr);
+            PatientRegistration obj=new PatientRegistration(ptnMgr, advMgr, symMgr, docMgr);
             obj.setVisible(true);
             this.setVisible(false);
         }
         else if(Doctor.isSelected()){
-            DoctorRegistration obj=new DoctorRegistration(ptnMgr, advMgr, symMgr,doc);
+            DoctorRegistration obj=new DoctorRegistration(ptnMgr, advMgr, symMgr,docMgr);
             obj.setVisible(true);
             this.setVisible(false);
         }
@@ -137,7 +137,7 @@ public class Registration extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,doc);
+        Welcome obj=new Welcome(ptnMgr, advMgr, symMgr,docMgr);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

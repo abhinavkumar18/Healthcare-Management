@@ -20,19 +20,22 @@ public class ViewAdviceUI extends javax.swing.JFrame {
     private PatientManager ptnMgr;
     private AdviceManager advMgr;
     private SymptomManager symMgr;
-    private Doctor doc;
+    private DoctorManager docMgr;
     private String email;
+    private Patient p;
     /**
      * Creates new form ViewAdviceUI
      */
-    public ViewAdviceUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc, String e) {
+    public ViewAdviceUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String e) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
-        this.doc=doc;
+        this.docMgr=docMgr;
         this.email = e;
+        this.p = ptnMgr.getPatient(email);
         initComponents();
-        
+        searchText.setText(p.getpatientname());
+        searchID.setText(p.getpatientid());
     }
 
     /**
@@ -168,7 +171,7 @@ public class ViewAdviceUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc, email);
+         PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,docMgr, email);
                     obj.setVisible(true);
                     this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

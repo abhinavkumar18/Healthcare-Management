@@ -20,13 +20,13 @@ public class Welcome extends javax.swing.JFrame {
     private PatientManager ptnMgr;
     private AdviceManager advMgr;
     private SymptomManager symMgr;
-    private Doctor doc;
+    private DoctorManager docMgr;
     
-    public Welcome(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc) {
+    public Welcome(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
-        this.doc=doc;
+        this.docMgr=docMgr;
         initComponents();
     }
 
@@ -183,7 +183,7 @@ public class Welcome extends javax.swing.JFrame {
         else{
             if(Patient.isSelected()){
                 if(ptnMgr.Login(E, P)){
-                    PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc, E);
+                    PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,docMgr, E);
                     obj.setVisible(true);
                     this.setVisible(false);
                 }
@@ -193,8 +193,8 @@ public class Welcome extends javax.swing.JFrame {
                 
             }
             else if(Doctor.isSelected()){
-                if(doc.login(E, P)){
-                    DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,doc);
+                if(docMgr.login(E, P)){
+                    DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,docMgr, E);
                     obj.setVisible(true);
                     this.setVisible(false);
                 }
@@ -213,7 +213,7 @@ public class Welcome extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Registration obj=new Registration(ptnMgr, advMgr, symMgr,doc);
+        Registration obj=new Registration(ptnMgr, advMgr, symMgr,docMgr);
         obj.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

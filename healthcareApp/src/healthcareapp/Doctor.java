@@ -25,79 +25,82 @@ public class Doctor {
     public String Email;
     public String Password;
     public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredDoctors.csv";
-    private Scanner x;
-    public void Register(String id,String name,String gender,String dob,String hospital,String qual,String spec,String add,String phn,String email,String pass){
-        
-        FileWriter fileWriter=null;
-        try{
-            fileWriter=new FileWriter(filepath,true);
-            fileWriter.append(id);
-            fileWriter.append(",");
-            fileWriter.append(name);
-            fileWriter.append(",");
-            fileWriter.append(gender);
-            fileWriter.append(",");
-            fileWriter.append(dob);
-            fileWriter.append(",");
-            fileWriter.append(hospital);
-            fileWriter.append(",");
-            fileWriter.append(qual);
-            fileWriter.append(",");
-            fileWriter.append(spec);
-            fileWriter.append(",");
-            fileWriter.append(add);
-            fileWriter.append(",");
-            fileWriter.append(phn);
-            fileWriter.append(",");
-            fileWriter.append(email);
-            fileWriter.append(",");
-            fileWriter.append(pass);
-            fileWriter.append("\n");
-            
-            
-            
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }finally{
-            try{
-                fileWriter.flush();
-                fileWriter.close();
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        }
-        
+    
+    
+    public String getdoctorid() {
+        return ID;
     }
-    public boolean login(String Email,String Pass){
-        boolean found=false;
-        String email="";
-        String pass="";
-        String name="";
-        String id="";
-        try{
-            x=new Scanner(new File(filepath));
-            x.useDelimiter("[,\n]");
+    
+    public String getdoctorname() {
+        return Name;
+    }
+    
+    public String getdoctorgender() {
+        return Gender;
+    }
+    
+    public String getdoctordob() {
+        return Dob;
+    }
+    
+    public String getdoctorhospital() {
+        return Hospital;
+    }
+    
+    public String getdoctorqualification() {
+        return Qualification;
+    }
+    
+    public String getdoctorspecialisation() {
+        return Specialization;
+    }
+    
+    public String getdoctoraddress() {
+        return Address;
+    }
+    
+    public String getdoctorphonno() {
+        return Phnno;
+    }
+    
+    public String getdoctoremail() {
+        return Email;
+    }
+    
+    public String getdoctorpass() {
+        return Password;
+    }
+    
+   Doctor() {};
+   
+   public Doctor(String id,String name,String gender,String dob,String hospital,String qual,String spec,String add,String phn,String email,String pass){
+        this.ID = id;
+        this.Name = name;
+        this.Gender = gender;
+        this.Dob = dob;
+        this.Hospital = hospital;
+        this.Qualification = qual;
+        this.Specialization = spec;
+        this.Address = add;
+        this.Phnno = phn;
+        this.Email = email;
+        this.Password = pass;
+    }
+    
+    
+    public String toString() {
+        return "Doctor ID: " + getdoctorid() 
+                + "\n Doctor Name: " + getdoctorname()
+                + "\n Gender: " + getdoctorgender()
+                + "\n D.O.B: " + getdoctordob()
+                +"\n Hospital: " + getdoctorhospital()
+                +"\n Qualification: " + getdoctorqualification()
+                +"\n Specialisation: " + getdoctorspecialisation()
+                + "\n Address: " + getdoctoraddress()
+                + "\nPhone Number;  " + getdoctorphonno()
+                + "\nEmail: " + getdoctoremail()
+                +"\nPassword: " + getdoctorpass();
                 
-                while(x.hasNext() && !found){
-                    id=x.next();
-                    name=x.next();
-                    for(int i=0;i<=6;i++){
-                        x.next();
-                    }
-                    email=x.next();
-                    pass=x.next();
-                    
-                    if(email.equals(Email) && pass.equals(Pass)){
-                        found=true;
-                    }
-                }
-                return found;
-        }catch(Exception e){
-            System.out.println(e);
-        }
-        
-        
-        return found;
     }
     
 }
