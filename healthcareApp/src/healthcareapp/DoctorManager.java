@@ -89,4 +89,72 @@ public class DoctorManager {
         
         return found;
     }
+    
+    
+    public Doctor getDoctor(String Email) {
+        
+        
+        boolean found = false;
+         String id="";
+     String name="";
+     String address="";
+     String email="";
+    String pass="";
+    String gender="";
+     String dob="";
+    String phnno="";
+    String hospital="";
+String qual = "";
+String spec = "";
+
+
+    
+    try{
+            x=new Scanner(new File(filepath));
+            x.useDelimiter("[,\n]");
+                
+                while(x.hasNext() && !found){
+                    id=x.next();
+                    //System.out.println(id);
+                    
+                    name=x.next();
+                    //System.out.println(name);
+                    
+                    gender =x.next();
+                    //System.out.println(gender);
+                    
+                    dob = x.next();
+                    //System.out.println(dob);
+                    hospital = x.next();
+                    
+                    qual = x.next();
+                    
+                    spec = x.next();
+                    
+                    address= x.next();
+                    //System.out.println(address);
+                    
+                    phnno= x.next();
+                    //System.out.println(phnno);
+                    
+                    email=x.next();
+                    //System.out.println(email);
+                    
+                    pass=x.next();
+                    //System.out.println(pass);
+                    
+                    if(email.equals(Email)){
+                       //    String id,String name,String gender,String dob,String hospital,String qual,String spec,String add,String phn,String email,String pass
+                        
+                        return new Doctor(id, name, gender,dob,hospital,qual,spec, address,phnno, email, pass );
+                    }
+                }
+                
+                
+                
+        } catch(Exception e){
+            System.out.println(e);
+        }
+    return new Doctor();
+    }
 }
