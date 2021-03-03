@@ -183,7 +183,7 @@ public class Welcome extends javax.swing.JFrame {
         else{
             if(Patient.isSelected()){
                 if(ptnMgr.Login(E, P)){
-                    PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc);
+                    PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc, E);
                     obj.setVisible(true);
                     this.setVisible(false);
                 }

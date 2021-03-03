@@ -23,12 +23,13 @@ public class SymptomUI extends javax.swing.JFrame {
     private AdviceManager advMgr;
     private SymptomManager symMgr;
     private Doctor doc;
-    
-    public SymptomUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc) {
+    private String email;
+    public SymptomUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,Doctor doc, String e) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
         this.doc=doc;
+        this.email = e;
         initComponents();
         
     }
@@ -261,7 +262,7 @@ public class SymptomUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc);
+        PatientLogin obj=new PatientLogin(ptnMgr, advMgr, symMgr,doc, email);
                     obj.setVisible(true);
                     this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
