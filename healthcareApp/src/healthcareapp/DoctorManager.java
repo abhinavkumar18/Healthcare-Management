@@ -7,6 +7,7 @@ package healthcareapp;
 import java.util.*;
 import java.io.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author kmrakash
@@ -32,7 +33,7 @@ public class DoctorManager {
         
         FileWriter fileWriter=null;
         try{
-            fileWriter=new FileWriter(filepath,true);
+            fileWriter=new FileWriter(new File(filepath),true);
             fileWriter.append(id);
             fileWriter.append(",");
             fileWriter.append(name);
@@ -60,12 +61,16 @@ public class DoctorManager {
             System.out.println("Successfully , Registered");
         }catch(Exception ex){
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }finally{
             try{
                 fileWriter.flush();
                 fileWriter.close();
             }catch(Exception e){
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             }
         }
         
@@ -97,6 +102,8 @@ public class DoctorManager {
                 return found;
         }catch(Exception e){
             System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            
         }
         
         
@@ -166,7 +173,9 @@ String spec = "";
                 
                 
         } catch(Exception e){
-            System.out.println(e);
+           // System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
     return new Doctor();
     }

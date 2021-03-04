@@ -7,6 +7,7 @@ package healthcareapp;
 import java.util.*;
 import java.io.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -65,6 +66,8 @@ public class AdviceManager {
             }
         }catch(Exception ex){
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
           
         }
         finally{
@@ -72,6 +75,8 @@ public class AdviceManager {
                 reader.close();
             }catch(Exception e){
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             }
         }
         
@@ -99,6 +104,8 @@ public class AdviceManager {
             
         }catch(Exception ex){
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             
         }
         finally{
@@ -107,6 +114,8 @@ public class AdviceManager {
                 filewriter.close();
             }catch(Exception e){
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             }
         }
         
@@ -162,12 +171,16 @@ public class AdviceManager {
            
             }
           
-               System.out.println("No records found");
+               //System.out.println("No records found");
+               JOptionPane.showMessageDialog(null, "No records found", "ERROR", JOptionPane.ERROR_MESSAGE);
+            
                return null;
            
         }
         catch(Exception e){
-            System.out.println(e);
+            //System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
         return null;
     }

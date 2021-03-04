@@ -7,6 +7,7 @@ package healthcareapp;
 import java.util.*;
 import java.io.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author kmrakash
@@ -67,6 +68,8 @@ public class SymptomManager {
             }
         }catch(Exception ex){
             ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
           
         }
         finally{
@@ -74,6 +77,8 @@ public class SymptomManager {
                 reader.close();
             }catch(Exception e){
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             }
         }
         
@@ -102,7 +107,8 @@ public class SymptomManager {
             
         }catch(Exception ex){
             ex.printStackTrace();
-            
+            JOptionPane.showMessageDialog(null, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
         finally{
             try{
@@ -110,6 +116,8 @@ public class SymptomManager {
                 filewriter.close();
             }catch(Exception e){
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             }
         }
         
@@ -157,7 +165,9 @@ public class SymptomManager {
             
             
         } catch(Exception e){
-            System.out.println(e);
+            //System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
         
         return new Symptom();

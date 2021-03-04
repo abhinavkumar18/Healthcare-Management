@@ -8,6 +8,7 @@ package healthcareapp;
 import java.util.*;
 import java.io.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Akash
@@ -43,7 +44,7 @@ public class PatientManager{
         
         try{
             String line="";
-            reader=new BufferedReader(new FileReader(filepath));
+            reader=new BufferedReader(new FileReader(new File(filepath)));
             reader.readLine();
             
             while((line=reader.readLine())!=null){
@@ -62,14 +63,16 @@ public class PatientManager{
                 }
             }
         }catch(Exception ex){
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
           
         }
         finally{
             try{
                 reader.close();
             }catch(Exception e){
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             }
         }
         
@@ -83,7 +86,7 @@ public class PatientManager{
         // Adding NewPatient into CSV File
         FileWriter filewriter=null;
         try{
-            filewriter= new FileWriter(filepath,true);
+            filewriter= new FileWriter(new File(filepath),true);
             filewriter.append(newPatient.getpatientid());
             filewriter.append(",");
             filewriter.append(newPatient.getpatientname());
@@ -96,7 +99,8 @@ public class PatientManager{
             filewriter.append("\n");
             
         }catch(Exception ex){
-            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             
         }
         finally{
@@ -104,7 +108,8 @@ public class PatientManager{
                 filewriter.flush();
                 filewriter.close();
             }catch(Exception e){
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             }
         }
         
@@ -116,7 +121,7 @@ public class PatientManager{
     public void Register(String id,String name,String gender,String dob,String add,String phn,String email,String pass){
         FileWriter fileWriter=null;
        // String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredPatients.csv";
-       String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
+       //String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
        
        
         try{
@@ -141,20 +146,23 @@ public class PatientManager{
             
             System.out.println("Successfully , Registered");
         }catch(Exception ex){
-            ex.printStackTrace();
+            
+            JOptionPane.showMessageDialog(null, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }finally{
             try{
                 fileWriter.flush();
                 fileWriter.close();
             }catch(Exception e){
-                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
             }
         }
     }
     
     public boolean Login(String Email,String Pass){
       //  String filepath="C:\\Users\\Akash\\Documents\\NetBeansProjects\\healthcareApp\\src\\healthcareapp\\RegisteredPatients.csv";
-      String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
+     // String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
       
       
         boolean found=false;
@@ -184,13 +192,14 @@ public class PatientManager{
                 return found;
                 
         }catch(Exception e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            
         }
         return found;
     }
     
     public Patient getPatient(String Email) {
-        String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
+       // String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredPatients.csv";
         
         boolean found = false;
          String id="";
@@ -243,7 +252,8 @@ public class PatientManager{
                 
                 
         } catch(Exception e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
     return new Patient();
     }
