@@ -19,16 +19,18 @@ public class GiveAdviceUI extends javax.swing.JFrame {
     private AdviceManager advMgr;
     private SymptomManager symMgr;
     private DoctorManager docMgr;
-    private String email;
+    private String patemail;
+    private String docemail;
     private Patient p;
     
-    public GiveAdviceUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String e) {
+    public GiveAdviceUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String patEmail, String docEmail) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
         this.docMgr = docMgr;
-        this.email = e;
-        this.p = ptnMgr.getPatient(email);
+        this.patemail= patEmail;
+        this.docemail = docEmail;
+        this.p = ptnMgr.getPatient(patemail);
         initComponents();
         patientId.setText(p.getpatientid());
         patientName.setText(p.getpatientname());
@@ -196,9 +198,9 @@ public class GiveAdviceUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,docMgr, email);
-                    obj.setVisible(true);
-                    this.setVisible(false);
+        PatientUI obj=new PatientUI(ptnMgr, advMgr, symMgr,docMgr, docemail);
+        obj.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

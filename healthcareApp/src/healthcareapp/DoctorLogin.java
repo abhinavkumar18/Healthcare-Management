@@ -26,12 +26,12 @@ public class DoctorLogin extends javax.swing.JFrame {
     /**
      * Creates new form PatientLogin
      */
-    public DoctorLogin(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String e) {
+    public DoctorLogin(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String docEmail) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
         this.symMgr = symMgr;
         this.docMgr=docMgr;
-        this.email = e;
+        this.email = docEmail;
         d = docMgr.getDoctor(email);
         initComponents();
         jLabel6.setText(d.getdoctorid());

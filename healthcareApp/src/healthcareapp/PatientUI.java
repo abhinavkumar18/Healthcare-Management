@@ -20,7 +20,7 @@ public class PatientUI extends javax.swing.JFrame {
     private AdviceManager advMgr;
     private SymptomManager symMgr;
     private DoctorManager docMgr;
-    private String email;
+    private String docEmail;
     private String patientEmail;
     boolean  isProceed = false;
     /**
@@ -33,7 +33,7 @@ public class PatientUI extends javax.swing.JFrame {
         this.advMgr = advMgr;
         this.symMgr = symMgr;
         this.docMgr = docMgr;
-        this.email = e;
+        this.docEmail = e;
     List<Patient> patientList = ptnMgr.getlistofpatients();
     for(Patient P: patientList) {
         String s = P.email;
@@ -213,7 +213,7 @@ public class PatientUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,docMgr, email);
+        DoctorLogin obj=new DoctorLogin(ptnMgr, advMgr, symMgr,docMgr, docEmail);
                     obj.setVisible(true);
                     this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -221,7 +221,7 @@ public class PatientUI extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         if(isProceed) {
-            GiveAdviceUI obj=new GiveAdviceUI(ptnMgr, advMgr, symMgr,docMgr, patientEmail);
+            GiveAdviceUI obj=new GiveAdviceUI(ptnMgr, advMgr, symMgr,docMgr, patientEmail, docEmail);
         obj.setVisible(true);
         this.setVisible(false);
         } else {
