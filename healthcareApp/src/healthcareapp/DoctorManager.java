@@ -14,6 +14,19 @@ import javax.swing.JFrame;
 public class DoctorManager {
     public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredDoctors.csv";
     private Scanner x;
+    private List<Doctor> doctorList;
+    
+    public boolean init(String filename){
+        boolean result=false;
+        this.doctorList.add(new Doctor("doc@1", "Doctor1", "male","01/02/03","Ruby","M.B.B.S", "Cardiologist", "Kolkata","123456789", "doctor1@gmail.com", "123456" ));
+        this.doctorList.add(new Doctor("doc@2", "Doctor2", "Female","01/02/03","Ruby","M.B.B.S", "Cardiologist", "Kolkata","123456789", "doctor2@gmail.com", "123456" ));
+        result=true;
+        return result;   
+    }
+    
+    public DoctorManager(){
+        this.doctorList=new ArrayList<Doctor>();
+    }
     
     public void Register(String id,String name,String gender,String dob,String hospital,String qual,String spec,String add,String phn,String email,String pass){
         

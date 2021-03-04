@@ -25,6 +25,8 @@ public class Doctor {
     public String Email;
     public String Password;
     public String filepath="/home/kmrakash/Healthcare-Management/healthcareApp/src/healthcareapp/RegisteredDoctors.csv";
+
+   
     
     
     public String getdoctorid() {

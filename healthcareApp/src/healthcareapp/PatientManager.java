@@ -17,16 +17,19 @@ public class PatientManager{
     private List<Patient> patientList;
     private List<Patient> result;
     private Scanner x;
-//    public boolean init(String filename){
-//        boolean result=false;
-//        this.patientList.add(new Patient("107","Rajat Malhotra","Orissa","raj123@gmail.com","raj345"));
-//        this.patientList.add(new Patient("108","Raja Roy","uttar Pradesh","raj3@gmail.com","raj215"));
-//        result=true;
-//        return result;   
-//    }
+    
+    public boolean init(String filename){
+        boolean result=false;
+        this.patientList.add(new Patient("pat@1","Patient 1","Kolkata","patient1@gmail.com","raj345", "Male", "01/02/2021", "1234567890"));
+        this.patientList.add(new Patient("pat@2","Patient 2","Kolkata","patient2@gmail.com","raj345", "Female", "01/02/2021", "1234567890"));
+        result=true;
+        return result;   
+    }
+    
     public PatientManager(){
         this.patientList=new ArrayList<Patient>();
     }
+    
     public List<Patient>getlistofpatients(){
         
     result=Collections.unmodifiableList(this.patientList);
@@ -72,43 +75,43 @@ public class PatientManager{
         
         return result;
     }
-//    public boolean addpatient(Patient newPatient){
-//        boolean result=false;
-//        this.patientList.add(newPatient);
-//        System.out.println("Added "+newPatient.toString());
-//        
-//        // Adding NewPatient into CSV File
-//        FileWriter filewriter=null;
-//        try{
-//            filewriter= new FileWriter(filepath,true);
-//            filewriter.append(newPatient.getpatientid());
-//            filewriter.append(",");
-//            filewriter.append(newPatient.getpatientname());
-//            filewriter.append(",");
-//            filewriter.append(newPatient.getpatientaddress());
-//            filewriter.append(",");
-//            filewriter.append(newPatient.getpatientemail());
-//            filewriter.append(",");
-//            filewriter.append(newPatient.getpatientpassword());
-//            filewriter.append("\n");
-//            
-//        }catch(Exception ex){
-//            ex.printStackTrace();
-//            
-//        }
-//        finally{
-//            try{
-//                filewriter.flush();
-//                filewriter.close();
-//            }catch(Exception e){
-//                e.printStackTrace();
-//            }
-//        }
-//        
-//        
-//        result=true;
-//        return result;
-//    }
+    public boolean addpatient(Patient newPatient){
+        boolean result=false;
+        this.patientList.add(newPatient);
+        System.out.println("Added "+newPatient.toString());
+        
+        // Adding NewPatient into CSV File
+        FileWriter filewriter=null;
+        try{
+            filewriter= new FileWriter(filepath,true);
+            filewriter.append(newPatient.getpatientid());
+            filewriter.append(",");
+            filewriter.append(newPatient.getpatientname());
+            filewriter.append(",");
+            filewriter.append(newPatient.getpatientaddress());
+            filewriter.append(",");
+            filewriter.append(newPatient.getpatientemail());
+            filewriter.append(",");
+            filewriter.append(newPatient.getpatientpassword());
+            filewriter.append("\n");
+            
+        }catch(Exception ex){
+            ex.printStackTrace();
+            
+        }
+        finally{
+            try{
+                filewriter.flush();
+                filewriter.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        
+        
+        result=true;
+        return result;
+    }
     
     public void Register(String id,String name,String gender,String dob,String add,String phn,String email,String pass){
         FileWriter fileWriter=null;

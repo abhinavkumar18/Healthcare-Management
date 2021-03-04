@@ -20,13 +20,13 @@ public class SymptomManager {
 
     
     //init
-//    public boolean init(String filename){
-//        boolean result=false;
-//        this.symptomsList.add(new Symptom("Rajat Malhotra","24-02-2021","Fever,Headache,coughing"));
-//        this.symptomsList.add(new Symptom("Raja Roy","24-02-2021","loose motions,weakness"));
-//        result=true;
-//        return result;   
-//    }
+    public boolean init(String filename){
+        boolean result=false;
+        this.symptomsList.add(new Symptom("pat@1","patient1", "03/02/2021","Fever"));
+        this.symptomsList.add(new Symptom("pat@2","patient2", "03/02/2021","Cough"));
+        result=true;
+        return result;   
+    }
     
     //constructor
     public SymptomManager(){
@@ -144,7 +144,8 @@ public class SymptomManager {
                 index = 0;
                 Symptoms = "";
                 while(index <=6) {
-                    Symptoms += x.next();
+                    String s = x.next();
+                    Symptoms = s.equals("") ? Symptoms : Symptoms + s +"-"; 
                     index++;
                 }
                 //System.out.println("Symptoms: "+ Symptoms);

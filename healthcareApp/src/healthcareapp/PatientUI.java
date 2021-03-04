@@ -39,6 +39,7 @@ public class PatientUI extends javax.swing.JFrame {
         String s = P.email;
         cmbPatientList.addItem(s);
     }
+    
     }
    
     /**
@@ -200,11 +201,17 @@ public class PatientUI extends javax.swing.JFrame {
            jLabel5.setText(ptn.getpatientid());
            jLabel6.setText(ptn.getpatientname());
            
-           String allSymptoms = sym.getsymptoms();
-           System.out.println(allSymptoms);
+           String[] allSymptoms = sym.getsymptoms().split("-");
+           
           DefaultListModel<String> model = new DefaultListModel<>();
-          
-          model.addElement(allSymptoms);
+           int len = allSymptoms.length;
+           for(int i=0; i<len; i++) {
+                model.addElement(allSymptoms[i]);
+//                System.out.println(allSymptoms);
+           } 
+
+//          
+//          
           jList1.setModel(model);
           isProceed = true;
         }
