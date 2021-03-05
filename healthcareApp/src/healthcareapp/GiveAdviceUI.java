@@ -23,6 +23,8 @@ public class GiveAdviceUI extends javax.swing.JFrame {
     private String docemail;
     private Patient p;
     
+    GiveAdviceUI(){};
+    
     public GiveAdviceUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String patEmail, String docEmail) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;

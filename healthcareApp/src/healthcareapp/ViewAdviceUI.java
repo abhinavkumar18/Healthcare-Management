@@ -26,6 +26,8 @@ public class ViewAdviceUI extends javax.swing.JFrame {
     /**
      * Creates new form ViewAdviceUI
      */
+    ViewAdviceUI(){};
+    
     public ViewAdviceUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String e) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;

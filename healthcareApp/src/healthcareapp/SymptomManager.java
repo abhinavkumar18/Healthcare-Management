@@ -182,20 +182,20 @@ public class SymptomManager {
    public static void main(String[] args) {
 //        
         SymptomManager mgr= new SymptomManager();
-////        mgr.uploadsymptoms(new Symptom("Abhishek Malhotra","24-02-2021","Fever,Headache,coughing"));
-////        mgr.uploadsymptoms(new Symptom("Raja Rajesh","24-02-2021","loose motions,weakness"));
-////        System.out.println(mgr.getinfo());
-//        //mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
+       mgr.uploadsymptoms(new Symptom("1", "Abhishek Malhotra","24-02-2021","Fever,Headache,coughing"));
+        mgr.uploadsymptoms(new Symptom("2", "Raja Rajesh","24-02-2021","loose motions,weakness"));
+       
+        mgr.init("Symptoms.csv");
 //        //assert(mgr.getlistofpatients().size()==2);
 //        //assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
 //        
 //        //create Screens
-//        JFrame SymptomsUI = new SymptomUI(mgr);
+        JFrame SymptomsUI = new SymptomUI();
 //        
-//        SymptomsUI.setVisible(true);
+        SymptomsUI.setVisible(true);
 
-        Symptom s= mgr.getSymptom("pat@2", "Patient 2");
-        System.out.println(s.toString());
+//        Symptom s= mgr.getSymptom("pat@2", "Patient 2");
+//        System.out.println(s.toString());
       }
 //    
 }

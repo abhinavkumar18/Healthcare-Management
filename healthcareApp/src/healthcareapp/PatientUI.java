@@ -26,6 +26,9 @@ public class PatientUI extends javax.swing.JFrame {
     /**
      * Creates new form PatientUI
      */
+    
+    PatientUI(){};
+    
     public PatientUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String e) {
         initComponents();
         

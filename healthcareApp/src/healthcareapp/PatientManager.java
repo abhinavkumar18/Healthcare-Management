@@ -267,22 +267,24 @@ public class PatientManager{
     public static void main(String[] args) {
         
         PatientManager mgr= new PatientManager();
-       // mgr.init("C:\\Users\\DELL\\OneDrive\\Desktop\\CSV files\\Patientlist.csv");
+        
+        //init
+        mgr.init("Patientlist.csv");
 //        assert(mgr.getlistofpatients().size()==2);
 //        assert(mgr.getlistofpatients().get(1).getpatientid().equals("108"));
 
-//    mgr.Register("pat125", "PatientName3", "Male", "01/01/2021", "Kolkata", "1234567890", "pat3@gmail.com", "123456");
-//    Patient p = mgr.getPatient("pat3@gmail.com");
+   mgr.Register("pat125", "PatientName3", "Male", "01/01/2021", "Kolkata", "1234567890", "pat3@gmail.com", "123456");
+    Patient p = mgr.getPatient("pat3@gmail.com");
 //    
 //    System.out.println(p.toString());
 
-        List<Patient> p = mgr.getlistofpatients();
-        for(Patient P: p) {
-            System.out.println(P.email);
-        }
+//        List<Patient> p = mgr.getlistofpatients();
+//        for(Patient P: p) {
+//            System.out.println(P.email);
+//        }
         
-//    JFrame PatientsUI = new PatientUI(mgr);
-//    PatientsUI.setVisible(true);
+    JFrame PatientsUI = new PatientUI();
+    PatientsUI.setVisible(true);
         
         
         }

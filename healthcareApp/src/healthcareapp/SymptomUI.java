@@ -25,6 +25,9 @@ public class SymptomUI extends javax.swing.JFrame {
     private DoctorManager docMgr;
     private String email;
     private Patient p;
+    
+    SymptomUI(){};
+    
     public SymptomUI(PatientManager ptnMgr, AdviceManager advMgr, SymptomManager symMgr,DoctorManager docMgr, String e) {
         this.ptnMgr = ptnMgr;
         this.advMgr = advMgr;
